@@ -1,15 +1,40 @@
 package tallerweb.keeprunning.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name="Registracion")
+
 public class ClassRegistrarse {
 
 	/*Esta clase tiene todos los atributos del formulario Registrarse y Esta funcionando*/
 	
+	@Id
+	@Column(name="Id")
+	private Integer ID;
+	
+	@Column(name="Nombre")
 	private String nombre;
+	
+	@Column(name="Apellido")
 	private String apellido;
+	
+	@Column(name="Dni")
 	private Integer dni;
+	
+	@Column(name="Email")
 	private String email;
+	
+	@Column(name="FechaNac")
 	private String fechaNac;
+	
+	@Column(name="Password")
 	private String password;
+	
+	@Column(name="Password_Conf")
 	private String passwordConf;
 	
 	public String getNombre() {
@@ -59,5 +84,11 @@ public class ClassRegistrarse {
 	}
 	public void setPasswordConf(String passwordConf) {
 		this.passwordConf = passwordConf;
+	}
+	public Integer getID() {
+		return ID;
+	}
+	public void setID(Integer iD) {
+		ID = iD;
 	}		
 }

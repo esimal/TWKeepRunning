@@ -1,10 +1,28 @@
 package tallerweb.keeprunning.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity 
+@Table (name="Corredor_Carrera")
+
 public class ClassCorredorCarrera {
+	
+	@Id
+	@Column(name="Id")
 	private Integer ID;
+	
+	@Column(name="Nro_Remera")
 	private Integer nro_remera;
+	
+	@Column(name="Puesto")
 	private Integer puesto;
+	
+	@Column(name="Tiempo")
 	private String tiempo;
+	
 	public Integer getID() {
 		return ID;
 	}

@@ -1,13 +1,33 @@
 package tallerweb.keeprunning.modelo;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name="Reserva")
+
 public class ClassReserva {
 	
+	@Id
+	@Column(name="Id")
 	private Integer ID;
+	
+	@Column(name="Fecha")
 	private String fecha;
+	
+	@Column(name="ID_Corredor")
 	private Integer id_corredor;
+	
+	@Column(name="Id_Carrera")
 	private Integer id_carrera;
+	
+	@Column(name="Fecha_Pago")
 	private Date fecha_pago;
+	
+	@Column(name="Nro_Comprobante")
 	private Integer nro_comprobante;
 	
 	public Integer getID() {

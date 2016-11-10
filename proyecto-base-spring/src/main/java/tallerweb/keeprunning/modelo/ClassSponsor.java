@@ -1,9 +1,26 @@
 package tallerweb.keeprunning.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Sponsor")
+
 public class ClassSponsor {
+
+	@Id
+	@Column(name="Id")
 	private Integer ID;
+	
+	@Column(name="Nombre")
 	private String nombre;
+	
+	@Column(name="Activo")
 	private Integer activo;
+	
+	@Column(name="Saldo")
 	private Integer saldo;
 	
 	public Integer getID() {
