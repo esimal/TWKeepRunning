@@ -23,6 +23,7 @@
 		<!-- Mappings -->
 		<property name="packagesToScan">
 			<list>
+			<value>tallerweb.keeprunning.modelo</value>
 			</list>
 		</property>
 	</bean>
