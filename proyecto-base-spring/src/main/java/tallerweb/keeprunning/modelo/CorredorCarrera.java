@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity 
 @Table (name="Corredor_Carrera")
 
-public class ClassCorredorCarrera {
+public class CorredorCarrera {
 	
 	@Id
 	@Column(name="Id")

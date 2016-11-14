@@ -159,7 +159,7 @@
 					</div>
 					<div class="text-center">
 						<a href="./login"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
-						<a href="./inscripcion"><button type="button" class="btn btn-success btnInscripcion" id="btnInscripcion" data-toggle="modal">Si ya 
+						<a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnInscripcion" id="btnInscripcion" data-toggle="modal">Si ya 
 						está logueado iría a donde va este botón ;)</button></a>
 					</div>
 				</div>

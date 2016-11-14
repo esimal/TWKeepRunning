@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Carrera;
-import tallerweb.keeprunning.modelo.ClassRegistrarse;
 import tallerweb.keeprunning.modelo.Usuario;
 import tallerweb.keeprunning.serviciocarreras.ServicioCarreras;
 
@@ -116,17 +115,20 @@ public class ControladorCarreras {
 	/* hay que meter el servicio y buscar los datos en la base!!!! */
 	public ModelAndView ingresarUsuario(@ModelAttribute("classLogin") Usuario usuario, HttpServletRequest request) {
 		if(usuario.getEmail().equals("mariano9@hotmail.com") && usuario.getPassword().equals("dmc")){
-			return new ModelAndView("miIngresoOk");
+			ModelMap model = new ModelMap();
+			request.getSession().setAttribute("logueo", "usuario-logueado");
+			return new ModelAndView("inscripcion", model);
 		} else {
 			ModelMap model = new ModelMap();
 			model.put("error", "usuario-invalido");
-			return new ModelAndView("miIngresoIncorrecto", model);
+			return new ModelAndView("login", model);
 		}		
 	}
 	
-	@RequestMapping(value = "/inscripcion", method = RequestMethod.GET)
-	public ModelAndView datosInscripcion() {
+	@RequestMapping(value = "/inscripcion/{id}", method = RequestMethod.GET)
+	public ModelAndView datosInscripcion(@PathVariable("id") int id) {
 		Carrera c1 = new Carrera();
+		c1.abrirDetalleDeCarreraPorId(id);		
 		ModelMap datosCarrera = new ModelMap();
 		datosCarrera.put("nombre", c1.getNombre());
 		ModelAndView vistaCarrera = new ModelAndView();
@@ -134,10 +136,12 @@ public class ControladorCarreras {
 		vistaCarrera.setViewName("inscripcion");
 		return vistaCarrera;
 		}
-		
-	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
-	public ModelAndView vistaInscripcion() {
-		return new ModelAndView("inscripcion-pago");
+	
+	@RequestMapping(value = "/inscripcion-pago/{logueo}", method = RequestMethod.GET)
+	public ModelAndView vistaInscripcion(@PathVariable("logueo") String logueo) {
+		ModelMap model = new ModelMap();
+		model.put("logueo", logueo);
+		return new ModelAndView("inscripcion-pago", model);
 	}
 	
 	/*@RequestMapping(value="/carrera1",  method = RequestMethod.GET)

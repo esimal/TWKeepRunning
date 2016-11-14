@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Sponsor")
 
-public class ClassSponsor {
+public class Sponsor {
 
 	@Id
 	@Column(name="Id")

@@ -46,7 +46,7 @@
 	            <div class="col-xs-12">
 	                <h1 class="page-header text-center titulo">KEEP RUNNING</h1>
 	                <h2 class="text-center texto-login">Login</h2>
-	           
+	           		<div class="col-xs-6 col-xs-offset-3"><b>${error}</b></div>
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-login">
 						<form:form method="post" modelAttribute="classLogin" class="form-horizontal" role="form">
 							<div class="form-group">

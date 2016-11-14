@@ -32,7 +32,14 @@
 				<ul class="nav nav-pills navbar-right">
 					<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 					<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-				  	<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				  	<c:choose>
+				  	<c:when test="${logueo=='usuario-logueado'}">
+				  			<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> ${email}</a></li>
+				  	</c:when>
+				  	<c:otherwise>		
+				  			<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 		</nav>
@@ -41,7 +48,7 @@
 	            <div class="col-xs-12">
 	                <h1 class="page-header text-center titulo">KEEP RUNNING</h1>
 	                <h2 class="text-center texto-login">Inscripción</h2>
-	           
+	                        
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion text-center">
 							<h3>Datos de la Tarjeta</h3>
