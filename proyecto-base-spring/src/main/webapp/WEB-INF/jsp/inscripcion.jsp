@@ -83,7 +83,6 @@
 							  	<div class="text-center">
 									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring/carrera1">Atrás</a>
 									<a class="btn btn-primary btnContinuar" href="../proyecto-base-spring/inscripcion-pago">Siguiente</a>
-									<a class="btn btn-primary btnContinuar" href="../inscripcion-pago">Siguiente (si se ve mal)</a>
 									<!--<a class="btn btn-primary btnContinuar" href="../inscripcion-pago/${nombre}/${logueo}">Siguiente</a>-->
 								</div>
 							</form>
