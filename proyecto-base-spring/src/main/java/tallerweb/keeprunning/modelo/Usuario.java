@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /*import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -13,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 */
+@Component
+@Scope("session")
 @Entity
 @Table(name = "Usuario")
 public class Usuario {

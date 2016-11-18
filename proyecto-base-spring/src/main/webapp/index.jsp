@@ -30,9 +30,17 @@
 		<nav class="navbar navbar-fixed-top menu">
   			<div class="container-fluid">
 				<ul class="nav nav-pills navbar-right">
-					<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>				
-					<li><a class="btn btn-menu" href="proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-				  	<li><a class="btn btn-menu" href="proyecto-base-spring/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				  	<c:choose>
+					  	<c:when test="${logueo=='mariano9@hotmail.com'}">
+					  		<li><a class="btn btn-menu" href="proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+					  		<li><a class="btn btn-menu" href="proyecto-base-spring/login=0">${logueo}</a></li>
+					  	</c:when>
+					  	<c:otherwise>
+							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>				
+							<li><a class="btn btn-menu" href="proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>					  	
+					  		<li><a class="btn btn-menu" href="proyecto-base-spring/login=0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						</c:otherwise>
+					</c:choose>				  	
 				</ul>
 			</div>
 		</nav>

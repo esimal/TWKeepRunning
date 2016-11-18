@@ -30,15 +30,16 @@
 		<nav class="navbar navbar-fixed-top menu">
   			<div class="container-fluid">
 				<ul class="nav nav-pills navbar-right">
-					<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-					<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
 				  	<c:choose>
-				  	<c:when test="${logueo=='usuario-logueado'}">
-				  			<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> ${email}</a></li>
-				  	</c:when>
-				  	<c:otherwise>		
-				  			<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					</c:otherwise>
+					  	<c:when test="${logueo=='mariano9@hotmail'}">
+					  		<li><a class="btn btn-menu" href="../0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
+					  		<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> ${logueo}</a></li>
+					  	</c:when>
+					  	<c:otherwise>		
+							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+							<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+							<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>							
+						</c:otherwise>
 					</c:choose>
 				</ul>
 			</div>
@@ -47,7 +48,7 @@
 	        <div class="row">
 	            <div class="col-xs-12">
 	                <h1 class="page-header text-center titulo">KEEP RUNNING</h1>
-	                <h2 class="text-center texto-login">Inscripción</h2>
+	                <h2 class="text-center texto-login">Inscripción Pago</h2>
 	                        
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion text-center">
@@ -56,7 +57,7 @@
 						<div>
 							<form method="get" class="form-horizontal" role="form">
 								<div class="form-group">
-						    		<label for="titular" class="col-xs-6">Titular de la Tarjeta:</label>
+						    		<label for="titular" class="col-xs-6">Titular de la Tarjeta:${nombre}/${logueo}</label>
 						    		<div class="col-xs-6">
 										<input type="text" id="titular" class="form-control opciones-inscripcion" required="required"/>
 									</div>
@@ -111,7 +112,7 @@
 							    
 							  	<div class="text-center">
 									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring/inscripcion">Atrás</a>
-									<a class="btn btn-primary btnContinuar" href="#">Finalizar</a>
+									<a class="btn btn-primary btnContinuar" href="../proyecto-base-spring/inscripcion-fin">Finalizar</a>
 								</div>
 							</form>
 						</div>

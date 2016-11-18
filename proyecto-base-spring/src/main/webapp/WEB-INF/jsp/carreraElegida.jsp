@@ -66,9 +66,17 @@
 	<nav class="navbar navbar-fixed-top menu">
 		<div class="container-fluid">
 			<ul class="nav nav-pills navbar-right">
-				<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-				<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-				<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<c:choose>
+					<c:when test="${logueo=='mariano9@hotmail.com'}">
+				  		<li><a class="btn btn-menu" href="./proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+						<li><a class="btn btn-menu" href="./login=0">${logueo}</a></li>
+				  	</c:when>
+				  	<c:otherwise>
+						<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+						<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>				  	
+						<li><a class="btn btn-menu" href="./login=0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
 	</nav>
@@ -158,9 +166,16 @@
 						</ul>
 					</div>
 					<div class="text-center">
-						<a href="./login"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
-						<a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnInscripcion" id="btnInscripcion" data-toggle="modal">Si ya 
-						está logueado iría a donde va este botón ;)</button></a>
+				<c:choose>
+					<c:when test="${logueo!='mariano9@hotmail.com'}">					
+						<a href="./login=${nombre}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
+					</c:when>
+					<c:otherwise>
+						<a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
+					</c:otherwise>
+				</c:choose>	
+						<!-- <a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnInscripcion" id="btnInscripcion" data-toggle="modal">Si ya 
+						está logueado iría a donde va este botón ;)</button></a>-->
 					</div>
 				</div>
 			</div>

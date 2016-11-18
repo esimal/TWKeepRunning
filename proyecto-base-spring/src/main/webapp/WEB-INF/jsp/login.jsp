@@ -35,9 +35,17 @@
 		<nav class="navbar navbar-fixed-top menu">
   			<div class="container-fluid">
 				<ul class="nav nav-pills navbar-right">
-					<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-					<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-				  	<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				  	<c:choose>
+					  	<c:when test="${logueo=='mariano9@hotmail.com'}">
+					  		<li><a class="btn btn-menu" href="proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+						  	<li><a class="btn btn-menu" href="./login=0">${logueo}</a></li>
+					  	</c:when>
+					  	<c:otherwise>
+							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+							<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+						  	<li><a class="btn btn-menu" href="./login=0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						</c:otherwise>
+					</c:choose>							  	
 				</ul>
 			</div>
 		</nav>
@@ -46,7 +54,7 @@
 	            <div class="col-xs-12">
 	                <h1 class="page-header text-center titulo">KEEP RUNNING</h1>
 	                <h2 class="text-center texto-login">Login</h2>
-	           		<div class="col-xs-6 col-xs-offset-3"><b>${error}</b></div>
+	           		<div class="col-xs-6 col-xs-offset-3">${error}</div>
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-login">
 						<form:form method="post" modelAttribute="classLogin" class="form-horizontal" role="form">
 							<div class="form-group">
