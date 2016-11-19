@@ -16,7 +16,7 @@ public class PersonaTest extends SpringTest {
 	/* esto es una Herencia */
 	@Test
 	@Transactional
-	//@Rollback
+	@Rollback
 	public void testPersona() {
 		Persona seba = new Persona();
 		seba.setNombre("Sebastian");

@@ -123,6 +123,11 @@ public class Carrera {
 		this.valor = 250;
 	}
 
+	public Carrera(Integer cant, String nombre) {
+		this.ID = cant;
+		this.nombre = nombre;
+	}
+	
 	public Carrera(String cant) {
 		this.nombre = cant;
 	}

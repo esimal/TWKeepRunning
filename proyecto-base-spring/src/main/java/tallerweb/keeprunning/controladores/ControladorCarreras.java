@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.inject.Scope;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
@@ -27,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.pruebas.SpringTest;
 import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Usuario;
 import tallerweb.keeprunning.serviciocarreras.ServicioCarreras;
@@ -38,7 +41,7 @@ import tallerweb.keeprunning.serviciocarreras.ServicioCarreras;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
-public class ControladorCarreras {
+public class ControladorCarreras extends SpringTest{
 	/*@RequestMapping("/init")
 	public ModelAndView cargarDatos(){
 		//Carrera carrera = Carrera.getInstance();
@@ -72,9 +75,31 @@ public class ControladorCarreras {
 		vistaCarrera.setViewName("carreraElegida");
 		return vistaCarrera;
 	}
-
+	
+	private EntityManager manager;
+	private EntityManagerFactory emf;
+	
 	@RequestMapping(value = "/todasLasCarreras", method = RequestMethod.GET)
 	public ModelAndView cargarTodasLasCarreras() {
+		Carrera c1 = new Carrera(1, "Carrera Triathlon");
+		ModelMap datosCarrera = new ModelMap();
+		
+		datosCarrera.put("id", c1.getID());		
+		datosCarrera.put("nombre", c1.getNombre());
+
+		/*		Session s = getSession();
+
+		manager.getTransaction().begin();
+		s.save(c1);
+		manager.getTransaction().commit();*/
+		
+		ModelAndView vistaCarreras = new ModelAndView("carreraElegida2");
+		vistaCarreras.addAllObjects(datosCarrera);
+		return vistaCarreras;
+	}
+	
+	@RequestMapping(value = "/todasLasCarreras_de_ref", method = RequestMethod.GET)
+	public ModelAndView cargarTodasLasCarreras2() {
 		List<String> list = getList();
 		ModelAndView model = new ModelAndView("carreraElegida2");
 		model.addObject("lists", list);

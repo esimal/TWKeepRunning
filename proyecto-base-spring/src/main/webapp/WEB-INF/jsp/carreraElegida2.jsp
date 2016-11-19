@@ -11,5 +11,9 @@
 			<li>${listValue}</li>
 		</c:forEach>
 	</ul>
+	${id}	
+	${nombre}
+	${id2}	
+	${nombre2}	
 </body>
 </html>
