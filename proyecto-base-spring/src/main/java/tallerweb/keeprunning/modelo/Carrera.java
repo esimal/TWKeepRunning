@@ -122,6 +122,10 @@ public class Carrera {
 		this.imagenRecorrido = "/proyecto-base-spring/img/circuito21kba.jpg";
 		this.valor = 250;
 	}
+
+	public Carrera(String cant) {
+		this.nombre = cant;
+	}
 	
 	public Carrera() {
 		

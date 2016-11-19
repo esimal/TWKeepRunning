@@ -52,7 +52,11 @@
 	            <div class="col-xs-12">
 	                <h2 class="carreras-abiertas text-center">Carreras Abiertas</h2>
 	            </div>
-	
+				<div class="col-xs-12">
+					<h2 class="carreras-abiertas text-center">
+						<a href="proyecto-base-spring/todasLasCarreras">Ver todas Las Carreras</a>
+					</h2>
+				</div>
 	            <div class="col-lg-3 col-md-4 col-xs-6">
 	                <div class="transparencia">
 	                	<a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=1">

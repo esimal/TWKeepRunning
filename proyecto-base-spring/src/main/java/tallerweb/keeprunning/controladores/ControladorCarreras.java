@@ -1,5 +1,8 @@
 package tallerweb.keeprunning.controladores;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.inject.Scope;
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionContext;
 
 import org.hibernate.Session;
+
 import org.junit.runner.Request;
 
 /*import javax.inject.Inject;*/
@@ -68,6 +72,31 @@ public class ControladorCarreras {
 		vistaCarrera.setViewName("carreraElegida");
 		return vistaCarrera;
 	}
+
+	@RequestMapping(value = "/todasLasCarreras", method = RequestMethod.GET)
+	public ModelAndView cargarTodasLasCarreras() {
+		List<String> list = getList();
+		ModelAndView model = new ModelAndView("carreraElegida2");
+		model.addObject("lists", list);
+
+		return model;
+	}
+	
+	private List<String> getList() {
+
+		List<String> list = new ArrayList<String>();
+		list.add("List A");
+		list.add("List B");
+		list.add("List C");
+		list.add("List D");
+		list.add("List 1");
+		list.add("List 2");
+		list.add("List 3");
+
+		return list;
+
+	}
+
 	
 	/*INICIO LOGICA FORMULARIO REGISTRACION*/
 	@RequestMapping(value="/registracion",  method = RequestMethod.GET)
