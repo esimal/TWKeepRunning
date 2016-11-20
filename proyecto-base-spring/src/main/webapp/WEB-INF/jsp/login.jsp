@@ -38,7 +38,7 @@
 				  	<c:choose>
 					  	<c:when test="${logueo=='mariano9@hotmail.com'}">
 					  		<li><a class="btn btn-menu" href="proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-						  	<li><a class="btn btn-menu" href="./login=0">${logueo}</a></li>
+						  	<li><a class="btn btn-menu" href="#">${logueo}</a></li>
 					  	</c:when>
 					  	<c:otherwise>
 							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>

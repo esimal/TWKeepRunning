@@ -31,9 +31,9 @@
   			<div class="container-fluid">
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
-					  	<c:when test="${logueo=='mariano9@hotmail'}">
-					  		<li><a class="btn btn-menu" href="../0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
-					  		<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> ${logueo}</a></li>
+					  	<c:when test="${logueo=='mariano9@hotmail.com'}">
+					  		<li><a class="btn btn-menu" href="proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
+					  		<li><a class="btn btn-menu" href="#"><span class="glyphicon glyphicon-log-in"></span> ${logueo}</a></li>
 					  	</c:when>
 					  	<c:otherwise>		
 							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
