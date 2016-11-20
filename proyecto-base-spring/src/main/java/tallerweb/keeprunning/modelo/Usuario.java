@@ -2,11 +2,11 @@ package tallerweb.keeprunning.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 /*import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,14 +16,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 */
-@Component
-@Scope("session")
-@Entity
-@Table(name = "Usuario")
+
+@Entity @Table(name = "Usuario")
 public class Usuario {
 
 	/*Esta clase tiene todos los atributos del formulario Registrarse y Esta funcionando*/
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id; /*lo defino como autoincremental (@Id @GeneratedValue ...)*/
+	
+	public long getId() {
+		return id;
+	}
+	
 	@Column(name="email")	
 	private String email;
 	

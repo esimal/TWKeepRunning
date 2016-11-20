@@ -2,19 +2,10 @@ package tallerweb.keeprunning.controladores;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
 
-import javax.inject.Inject;
-import javax.inject.Scope;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
 
 import org.hibernate.Session;
-
-import org.junit.runner.Request;
 
 /*import javax.inject.Inject;*/
 
@@ -25,14 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.pruebas.SpringTest;
 import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Usuario;
-import tallerweb.keeprunning.serviciocarreras.ServicioCarreras;
 
 //import tallerweb.keeprunning.modelo.Carrera;
 
@@ -75,10 +64,7 @@ public class ControladorCarreras extends SpringTest{
 		vistaCarrera.setViewName("carreraElegida");
 		return vistaCarrera;
 	}
-	
-	private EntityManager manager;
-	private EntityManagerFactory emf;
-	
+		
 	@RequestMapping(value = "/todasLasCarreras", method = RequestMethod.GET)
 	public ModelAndView cargarTodasLasCarreras() {
 		Carrera c1 = new Carrera(1, "Carrera Triathlon");
@@ -87,11 +73,9 @@ public class ControladorCarreras extends SpringTest{
 		datosCarrera.put("id", c1.getID());		
 		datosCarrera.put("nombre", c1.getNombre());
 
-		Session s = getSession();
+		/*Session s = getSession();
 
-		manager.getTransaction().begin();
-		s.save(c1);
-		manager.getTransaction().commit();
+		s.save(c1);*/
 		
 		ModelAndView vistaCarreras = new ModelAndView("carreraElegida2");
 		vistaCarreras.addAllObjects(datosCarrera);
