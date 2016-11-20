@@ -87,7 +87,7 @@ public class ControladorCarreras extends SpringTest{
 		datosCarrera.put("id", c1.getID());		
 		datosCarrera.put("nombre", c1.getNombre());
 
-		/*		Session s = getSession();
+		/*Session s = getSession();
 
 		manager.getTransaction().begin();
 		s.save(c1);

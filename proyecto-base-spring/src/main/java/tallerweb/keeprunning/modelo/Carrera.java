@@ -1,5 +1,7 @@
 package tallerweb.keeprunning.modelo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -33,6 +35,16 @@ public class Carrera {
 	
 	@Column(name="Valor")
 	private Integer valor;
+
+	@PostConstruct
+	private void initBean(){
+		System.out.println("inicio initBean!!");
+	}
+
+	@PreDestroy
+	private void destroyBean(){
+		System.out.println("fin destroyBean!!!");		
+	}
 	
 	public String getNombre() {
 		return nombre;

@@ -14,10 +14,4 @@ import tallerweb.keeprunning.modelo.Carrera;
 
 public abstract class ClasePersistente {
 
-	Session session = null;
-	List resultado = (List) session.createCriteria(Carrera.class)
-			.list();
-	private SessionFactory sessionFactory;
-	private EntityManager manager;
-	
 }
