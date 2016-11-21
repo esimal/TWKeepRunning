@@ -40,7 +40,7 @@ public class PersonaTest extends SpringTest {
 
 	public void testUsuario2() {
 		Carrera carrera1 = new Carrera();
-		carrera1.setNombre("carreraNro1");
+		carrera1.setNombre("carreraNumero1");
 		Session s = getSession();
 		s.save(carrera1);
 
