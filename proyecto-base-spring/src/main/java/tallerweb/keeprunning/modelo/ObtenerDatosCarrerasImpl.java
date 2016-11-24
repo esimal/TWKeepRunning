@@ -2,13 +2,16 @@ package tallerweb.keeprunning.modelo;
 
 import java.util.List;
 import javax.inject.Inject;
+
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 
+import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.servicios.ServicioCarrera;
-import tallerweb.keeprunning.servicios.UsuarioService;
 
 @Service
 @ContextConfiguration(locations={"/hibernateContext.xml"})
@@ -16,14 +19,13 @@ public class ObtenerDatosCarrerasImpl implements ServicioCarrera{
 	
 	@Inject
 	private SessionFactory sessionFactory;
-
-
+	
 	@SuppressWarnings("unchecked")
-	public List<Carrera> obtenerDatosCarreras(String carrera){
-		Query query = sessionFactory.openSession().createQuery("SELECT * FROM Carrera c where c.id ='" +carrera+"'");
-		List<Carrera> resultado = query.list();
-		return resultado;
-		//Ver como devolver todos los campos necesarios, y llevarlos al controladoCarreras
+	public Carrera obtenerDatosCarreras(Carrera carrera){
+		Criteria cr = sessionFactory.openSession().createCriteria(Carrera.class);
+		cr.add(Restrictions.eq("id", carrera.getId()));
+		List carreras = cr.list();
+		return (Carrera) carreras;
 	}
 	
 	public SessionFactory getSessionFactory() {
@@ -34,4 +36,3 @@ public class ObtenerDatosCarrerasImpl implements ServicioCarrera{
 		this.sessionFactory = sessionFactory;
 	}
 }
-

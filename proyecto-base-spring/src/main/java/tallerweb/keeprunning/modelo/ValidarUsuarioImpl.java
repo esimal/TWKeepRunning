@@ -22,7 +22,9 @@ public class ValidarUsuarioImpl implements UsuarioService{
 
 
 	@SuppressWarnings("unchecked")
+	//hay que cambiar el tipo de dato
 	public List<Usuario> validarUsuario(String email, String password){
+		//hay que pasarlo al dao
 		Criteria criteria = sessionFactory.openSession().createCriteria(Usuario.class)
 			.add(Restrictions.eq("email", email));
 			return (List<Usuario>) criteria.list();
@@ -43,5 +45,13 @@ public class ValidarUsuarioImpl implements UsuarioService{
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
+	/*@Override
+	public List<Usuario> grabarUsuario(String nombre, String apellido, Integer dni, String fechaNac, String email,
+			String password) {
+		Criteria criteria = sessionFactory.openSession().createCriteria(Usuario.class)
+		.add(Restrictions.eq("email", email));
+		return (List<Usuario>) criteria.list();
+	}*/
 }
 

@@ -52,7 +52,7 @@
 
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion">
-							<p>Hola <b>${logueo}</b>! Estás iniciando el proceso para inscribirte en el evento: <b>${nombre}</b>.</p><br>
+							<p>Hola <b>${logueo}${email}</b>! Estás iniciando el proceso para inscribirte en el evento: <b>${nombre}</b>.</p><br>
 								<!--<div>Password: ${classLogin.password} </div>-->			
 						</div>
 						<div class="">

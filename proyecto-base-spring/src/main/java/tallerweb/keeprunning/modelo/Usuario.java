@@ -36,9 +36,6 @@ public class Usuario {
 	@Column(name="password")	
 	private String password;
 	
-	@Column(name="rol")	
-	private String rol;
-	
 	@Column(name="passwordConf")	
 	private String passwordConf;
 	
@@ -89,13 +86,7 @@ public class Usuario {
 	}
 	public void setPasswordConf(String passwordConf) {
 		this.passwordConf = passwordConf;
-	}
-	public String getRol() {
-		return rol;
-	}
-	public void setRol(String rol) {
-		this.rol = rol;
-	}		
+	}	
 }
 
 

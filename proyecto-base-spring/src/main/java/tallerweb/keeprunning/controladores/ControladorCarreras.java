@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.pruebas.SpringTest;
 import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Usuario;
+import tallerweb.keeprunning.servicios.ServicioCarrera;
 import tallerweb.keeprunning.servicios.UsuarioService;
 
 //import tallerweb.keeprunning.modelo.Carrera;
@@ -31,6 +32,27 @@ import tallerweb.keeprunning.servicios.UsuarioService;
 @Controller
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorCarreras {
+	/*
+	@Inject
+	private ServicioCarrera servicioCarrera;
+	@RequestMapping(path="/carrera={id}", method = RequestMethod.POST)
+
+	public ModelAndView index(@ModelAttribute Carrera carrera, HttpServletRequest request, @PathVariable("id") Integer id) {
+	
+		servicioCarrera.obtenerDatosCarreras(carrera);
+	
+		ModelMap datosCarrera = new ModelMap();
+		
+		datosCarrera.addAttribute("id", carrera.getId());		
+		datosCarrera.addAttribute("nombre", carrera.getNombre());
+		datosCarrera.addAttribute("lugar", carrera.getLugar());
+		datosCarrera.addAttribute("fecha", carrera.getFechaInicio());
+		datosCarrera.addAttribute("hora", carrera.getHoraInicio());
+		datosCarrera.addAttribute("imagenFlyer", carrera.getImagenFlyer());
+		datosCarrera.addAttribute("imagenRecorrido", carrera.getImagenRecorrido());
+		datosCarrera.addAttribute("valor", carrera.getValor());
+		return new ModelAndView("vistaCarrera",datosCarrera);
+	}*/
 	/*@RequestMapping("/init")
 	public ModelAndView cargarDatos(){
 		//Carrera carrera = Carrera.getInstance();
