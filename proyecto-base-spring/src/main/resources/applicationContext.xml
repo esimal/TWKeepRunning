@@ -19,10 +19,11 @@
 	<import resource="classpath:hibernateContext.xml" />
 	<context:component-scan base-package="tallerweb.keeprunning.controladores"/>
 	<context:component-scan base-package="tallerweb.keeprunning.serviciocarreras"/>
-	<context:component-scan base-package="tallerweb.keeprunning.modelo"/>		
+	<context:component-scan base-package="tallerweb.keeprunning.modelo"/>
+	<context:component-scan base-package="tallerweb.keeprunning.modelopersona"/>		
 	<context:component-scan base-package="ar.edu.unlam.tallerweb1.pruebas.PersonaTest"/>
 	<mvc:annotation-driven />
-	<aop:aspectj-autoproxy />
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>

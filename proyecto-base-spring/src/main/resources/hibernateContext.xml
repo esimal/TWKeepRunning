@@ -28,7 +28,9 @@
 		</property>
 		<!-- Mappings -->
 		<property name="packagesToScan">
-			<list><value>tallerweb.keeprunning.modelo</value>
+			<list>
+			<value>tallerweb.keeprunning.modelo</value>
+			<value>tallerweb.keeprunning.modelopersona</value>			
 			</list>
 		</property>
 	</bean>

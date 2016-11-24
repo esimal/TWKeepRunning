@@ -7,17 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-/*import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-*/
-
-@Entity @Table(name = "Usuario")
+@Entity @Table(name = "usuario")
 public class Usuario {
 
 	/*Esta clase tiene todos los atributos del formulario Registrarse y Esta funcionando*/

@@ -16,7 +16,7 @@
 	    <link rel="icon" href="../../favicon.ico">
 	
 	    <title>Keep Running</title>
-	
+		${email}
 	    <!-- Bootstrap core CSS -->
 	    <link href="../css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

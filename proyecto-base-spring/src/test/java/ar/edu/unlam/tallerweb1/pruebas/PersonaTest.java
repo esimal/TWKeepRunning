@@ -1,9 +1,13 @@
 package ar.edu.unlam.tallerweb1.pruebas;
 
+import java.util.List;
+
 import org.assertj.core.api.Assertions;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.junit.Test;
 import org.springframework.test.annotation.Commit;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import tallerweb.keeprunning.modelo.Carrera;
@@ -38,12 +42,22 @@ public class PersonaTest extends SpringTest {
 		Assertions.assertThat(s.get(Usuario.class, usuario1.getId()));
 	}*/
 
-	public void testUsuario2() {
+	/*public void testUsuario2() {
 		Carrera carrera1 = new Carrera();
 		carrera1.setNombre("carreraNumero1");
 		Session s = getSession();
 		s.save(carrera1);
 
 		Assertions.assertThat(s.get(Carrera.class, carrera1.getID()));
-	}	
+	}*/
+	
+
+	public void testPersona() {
+		Carrera carrera1 = new Carrera();
+		carrera1.setNombre("carreraNumero1");
+		Session s = getSession();
+		List resultado = (List) s.createCriteria(Carrera.class)
+			.list();
+		
+	}
 }

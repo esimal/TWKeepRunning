@@ -10,12 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="Carrera")
+@Table (name="carrera")
 public class Carrera {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Id")
-	private Integer ID;
+	private Integer Id;
 	
 	@Column(name="Nombre")
 	private String nombre;
@@ -38,15 +38,6 @@ public class Carrera {
 	@Column(name="Valor")
 	private Integer valor;
 
-	@PostConstruct
-	private void initBean(){
-		System.out.println("inicio initBean!!");
-	}
-
-	@PreDestroy
-	private void destroyBean(){
-		System.out.println("fin destroyBean!!!");		
-	}
 	
 	public String getNombre() {
 		return nombre;
@@ -91,42 +82,42 @@ public class Carrera {
 		this.valor = valor;
 	}
 
-	public void abrirDetalleDeCarreraPorId(Integer ID){
-		this.ID = ID;
+	public void abrirDetalleDeCarreraPorId(Integer Id){
+		this.Id = Id;
 		this.lugar = "Campus Universidad de San Andrés (Vito Dumas 284, Victoria 1644 Buenos Aires)";
 		this.fechaInicio = "Domingo 23 de octubre de 2016";
 		this.horaInicio = "10KM y 3KM 9:00hs.";
-		if (this.ID == 1) {
+		if (this.Id == 1) {
 			this.nombre = "Carrera de la Mujer";
 			this.imagenFlyer = "/proyecto-base-spring/img/carrera-mujer-2016.jpg";
-		}else if (this.ID == 2){
+		}else if (this.Id == 2){
 			this.nombre = "Carrera de Neon";	
 			this.imagenFlyer = "/proyecto-base-spring/img/carrera-neon.jpg";
-		}else if (this.ID == 3){
+		}else if (this.Id == 3){
 			this.nombre = "Carrera por la Educacion";
 			this.imagenFlyer = "/proyecto-base-spring/img/carrera-educacion.jpg";
-		}else if (this.ID == 4){
+		}else if (this.Id == 4){
 			this.nombre = "Carrera My Run";
 			this.imagenFlyer = "/proyecto-base-spring/img/carrera21.jpg";
-		}else if (this.ID == 5){
+		}else if (this.Id == 5){
 			this.nombre = "Carrera Tandil";
 			this.imagenFlyer = "/proyecto-base-spring/img/flyer-1.jpg";
-		}else if (this.ID == 6){
+		}else if (this.Id == 6){
 			this.nombre = "Carrera XEU";	
 			this.imagenFlyer = "/proyecto-base-spring/img/kitcompetencia.jpg";
-		}else if (this.ID == 7){
+		}else if (this.Id == 7){
 			this.nombre = "Carrera Nocturna";	
 			this.imagenFlyer = "/proyecto-base-spring/img/maraton-lasrozas.jpg";
-		}else if (this.ID == 8){
+		}else if (this.Id == 8){
 			this.nombre = "Carrera Runderful";	
 			this.imagenFlyer = "/proyecto-base-spring/img/carrera22.png";
-		}else if (this.ID == 9){
+		}else if (this.Id == 9){
 			this.nombre = "Carrera Espiritu del Vino";	
 			this.imagenFlyer = "/proyecto-base-spring/img/rioja-winerun.jpg";
-		}else if (this.ID == 10){
+		}else if (this.Id == 10){
 			this.nombre = "Carrera Bariloche";	
 			this.imagenFlyer = "/proyecto-base-spring/img/the-north-face.jpg";
-		}else if (this.ID == 11){
+		}else if (this.Id == 11){
 			this.nombre = "Carrera UCH";	
 			this.imagenFlyer = "/proyecto-base-spring/img/uch-10k-2016.jpg";		
 		}else{
@@ -138,7 +129,7 @@ public class Carrera {
 	}
 
 	public Carrera(Integer cant, String nombre) {
-		this.ID = cant;
+		this.Id = cant;
 		this.nombre = nombre;
 	}
 	
@@ -149,11 +140,11 @@ public class Carrera {
 	public Carrera() {
 		
 	}
-	public Integer getID() {
-		return ID;
+	public Integer getId() {
+		return Id;
 	}
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setID(Integer Id) {
+		this.Id = Id;
 	}
 		
 }

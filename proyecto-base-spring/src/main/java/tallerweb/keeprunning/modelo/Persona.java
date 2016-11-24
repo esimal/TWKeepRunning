@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(name = "Persona")
+@Entity @Table(name = "persona")
 public class Persona {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id; /*lo defino como autoincremental (@Id @GeneratedValue ...)*/
