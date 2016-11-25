@@ -16,14 +16,13 @@
 	    <link rel="icon" href="../../favicon.ico">
 	
 	    <title>Keep Running</title>
-		${email}
 	    <!-- Bootstrap core CSS -->
 	    <link href="../css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <!-- Bootstrap theme -->
-	    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet">
 	    
-	    <link href="../css/estilos.css" rel="stylesheet">
+	    <link href="../../css/estilos.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -31,9 +30,9 @@
   			<div class="container-fluid">
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
-				  	<c:when test="${logueo=='mariano9@hotmail.com'}">
+				  	<c:when test="${email != null}">
 					  		<li><a class="btn btn-menu" href="proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-				  			<li><a class="btn btn-menu" href="#">${logueo}</a></li>
+				  			<li><a class="btn btn-menu" href="#">${email}</a></li>
 				  	</c:when>
 				  	<c:otherwise>
 							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
@@ -81,7 +80,7 @@
 								</div>   
 							    
 							  	<div class="text-center">
-									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring/carrera1">Atrás</a>
+									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring">Atrás</a>
 									<a class="btn btn-primary btnContinuar" href="../proyecto-base-spring/inscripcion-pago">Siguiente</a>
 									<!--<a class="btn btn-primary btnContinuar" href="../inscripcion-pago/${nombre}/${logueo}">Siguiente</a>-->
 								</div>

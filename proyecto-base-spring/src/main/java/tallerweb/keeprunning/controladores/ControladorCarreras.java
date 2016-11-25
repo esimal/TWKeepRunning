@@ -68,8 +68,8 @@ public class ControladorCarreras {
 	return modeloReturn;
 }*/
 	
-	@RequestMapping(value = "/carrera={carrera}", method = RequestMethod.GET)
-	public ModelAndView cargarDatosCarrera(@PathVariable("carrera") int id) {
+	@RequestMapping(value = "/carrera={id}", method = RequestMethod.GET)
+	public ModelAndView cargarDatosCarrera(@PathVariable("id") int id) {
 		Carrera c1 = new Carrera();
 		c1.abrirDetalleDeCarreraPorId(id);
 		ModelMap datosCarrera = new ModelMap();

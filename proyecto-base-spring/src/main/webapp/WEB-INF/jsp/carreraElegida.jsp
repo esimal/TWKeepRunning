@@ -67,9 +67,9 @@
 		<div class="container-fluid">
 			<ul class="nav nav-pills navbar-right">
 				<c:choose>
-					<c:when test="${logueo=='mariano9@hotmail.com'}">
+					<c:when test="${email != null}">
 				  		<li><a class="btn btn-menu" href="./proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-						<li><a class="btn btn-menu" href="./login=0">${logueo}</a></li>
+						<li><a class="btn btn-menu" href="./login=0">${email}</a></li>
 				  	</c:when>
 				  	<c:otherwise>
 						<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
@@ -167,8 +167,8 @@
 					</div>
 					<div class="text-center">
 				<c:choose>
-					<c:when test="${logueo!='mariano9@hotmail.com'}">					
-						<a href="./login=${nombre}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
+					<c:when test="${email == null}">					
+						<a href="./login=${email}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
 					</c:when>
 					<c:otherwise>
 						<a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					

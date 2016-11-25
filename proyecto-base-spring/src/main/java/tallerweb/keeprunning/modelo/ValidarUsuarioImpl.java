@@ -28,14 +28,6 @@ public class ValidarUsuarioImpl implements UsuarioService{
 		Criteria criteria = sessionFactory.openSession().createCriteria(Usuario.class)
 			.add(Restrictions.eq("email", email));
 			return (List<Usuario>) criteria.list();
-
-		/*List<Usuario> resultado = sessionFactory.openSession().createCriteria(Usuario.class)
-				.add(Restrictions.eq("email", email))
-				.list();
-		return resultado;*/
-		/*Query query = sessionFactory.openSession().createQuery("SELECT u.email FROM Usuario u where u.email ='" +email+"'");
-		List<Usuario> resultado = query.list();
-		return resultado;*/
 	}
 	
 	public SessionFactory getSessionFactory() {

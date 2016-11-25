@@ -21,7 +21,6 @@ public class ControladorRegistracion {
 		return altaUsuario;
 	}
 	
-	/*Incluyo pasaje de objetos a traves de diferentes jsp : Pag 53 pdf de elias*/
 	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
 	public ModelAndView guardarUsuario(Usuario classRegistrarse) {
 		ModelAndView modelAndView = new ModelAndView();

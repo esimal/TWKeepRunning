@@ -21,6 +21,39 @@ import tallerweb.keeprunning.servicios.UsuarioService;
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorLogin {
 
+	@Inject
+	private UsuarioService usuarioService;
+	@RequestMapping(path="/login={nombre}", method = RequestMethod.POST)
+
+	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("nombre") String nombre) {
+
+	List<Usuario> usuarioValidado = usuarioService.validarUsuario(usuario.getEmail(), usuario.getPassword());
+
+	if(usuarioValidado != null){
+		ModelMap model = new ModelMap();
+		if (nombre.equals("0")){
+			try{
+				request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
+			}catch(Exception e){
+				System.out.println("El usuario no existe en la base");
+				return new ModelAndView("redirect:/proyecto-base-spring/login={nombre}");	
+			}
+			return new ModelAndView("redirect:/");
+		}else{
+			return new ModelAndView("inscripcion", model);
+		}
+			} else {
+				ModelMap model2 = new ModelMap();
+				model2.put("error", "usuario-invalido");
+				request.getSession().invalidate();
+				return new ModelAndView("login", model2);
+			}	
+		}
+	public void setUsuarioService(UsuarioService servicioMock) {
+	// TODO Auto-generated method stub
+
+	}
+	
 	@RequestMapping(value = "/login={nombre}", method = RequestMethod.GET)
 	public ModelAndView vistaLogin (Model modelo) {
 		ModelAndView login = new ModelAndView();
@@ -50,33 +83,7 @@ public class ControladorLogin {
 		}		
 	}*/
 
-	@Inject
-	private UsuarioService usuarioService;
-	@RequestMapping(path="/login={nombre}", method = RequestMethod.POST)
-
-	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("nombre") String nombre) {
-		
-		List<Usuario> usuarioValidado = usuarioService.validarUsuario(usuario.getEmail(), usuario.getPassword());
-
-		if(usuarioValidado != null){
-			ModelMap model = new ModelMap();
-			try{
-			request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
-			}catch(Exception e){
-				System.out.println("El usuario no existe en la base");
-	        }				
-			return new ModelAndView("inscripcion", model);
-		} else {
-			ModelMap model2 = new ModelMap();
-			model2.put("error", "usuario-invalido");
-			request.getSession().invalidate();
-			return new ModelAndView("login", model2);
-		}	
-	}
-	public void setUsuarioService(UsuarioService servicioMock) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	@RequestMapping(value = "/0", method = RequestMethod.GET)
 	public ModelAndView vistaLogout (HttpServletRequest request) {

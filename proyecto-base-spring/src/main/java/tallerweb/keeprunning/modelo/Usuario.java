@@ -10,9 +10,9 @@ import javax.persistence.Table;
 @Entity @Table(name = "usuario")
 public class Usuario {
 
-	/*Esta clase tiene todos los atributos del formulario Registrarse y Esta funcionando*/
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id; /*lo defino como autoincremental (@Id @GeneratedValue ...)*/
+	private long id;
 	
 	public long getId() {
 		return id;

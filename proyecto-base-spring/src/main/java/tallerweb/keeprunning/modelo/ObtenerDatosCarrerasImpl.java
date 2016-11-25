@@ -23,7 +23,7 @@ public class ObtenerDatosCarrerasImpl implements ServicioCarrera{
 	@SuppressWarnings("unchecked")
 	public Carrera obtenerDatosCarreras(Carrera carrera){
 		Criteria cr = sessionFactory.openSession().createCriteria(Carrera.class);
-		cr.add(Restrictions.eq("id", carrera.getId()));
+		cr.add(Restrictions.eq("id", carrera));
 		List carreras = cr.list();
 		return (Carrera) carreras;
 	}
