@@ -28,5 +28,22 @@ public class ControladorRegistracion {
         modelAndView.setViewName("miPerfil");
         return modelAndView;
 	}
+	/*
+	@Inject
+	public RegistrarUsuario registrarUsuario;
+	/*INICIO LOGICA FORMULARIO REGISTRACION
+	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
+	public ModelAndView crearUsuario(@ModelAttribute Usuario usuario, ModelMap model, HttpServletRequest req) {
+		registrarUsuario.registrarUsuario(usuario);
+		req.getSession().setAttribute("usuario", usuario.getNombre());
+		model.addAttribute("nombre", usuario.getNombre());
+		model.addAttribute("apellido", usuario.getApellido());
+		model.addAttribute("dni", usuario.getDni());
+		model.addAttribute("email", usuario.getEmail());
+		model.addAttribute("fechaNac", usuario.getFechaNac());
+		model.addAttribute("password", usuario.getPassword());
+		model.addAttribute("passwordConf", usuario.getPasswordConf());
+		return new ModelAndView("vistaRegistracion",model);
+	}*/
 	/*FIN LOGICA FORMULARIO REGISTRACION*/
 }

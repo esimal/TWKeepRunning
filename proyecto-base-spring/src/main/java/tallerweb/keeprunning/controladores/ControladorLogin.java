@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Usuario;
-import tallerweb.keeprunning.servicios.UsuarioService;
+import tallerweb.keeprunning.servicios.ValidarUsuario;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorLogin {
 
 	@Inject
-	private UsuarioService usuarioService;
+	private ValidarUsuario usuarioService;
 	@RequestMapping(path="/login={nombre}", method = RequestMethod.POST)
 
 	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("nombre") String nombre) {
@@ -50,7 +50,7 @@ public class ControladorLogin {
 				return new ModelAndView("login", model2);
 			}	
 		}
-	public void setUsuarioService(UsuarioService servicioMock) {
+	public void setUsuarioService(ValidarUsuario servicioMock) {
 	// TODO Auto-generated method stub
 
 	}

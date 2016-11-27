@@ -21,8 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.pruebas.SpringTest;
 import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Usuario;
-import tallerweb.keeprunning.servicios.ServicioCarrera;
-import tallerweb.keeprunning.servicios.UsuarioService;
+import tallerweb.keeprunning.servicios.ObtenerDatosCarrera;
+import tallerweb.keeprunning.servicios.ValidarUsuario;
 
 //import tallerweb.keeprunning.modelo.Carrera;
 

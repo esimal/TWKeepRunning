@@ -27,16 +27,18 @@ public class Usuario implements java.io.Serializable{
 	private Long dni;
 	private String email;
 	private String password;
-	private Date fechaNac;
+	private String passwordConf;
+	private String fechaNac;
 	private Set<Reserva> reserva = new HashSet<Reserva>(0);
 	private Set<UsuarioCarrera> usuarioCarrera = new HashSet<UsuarioCarrera>(0);
 	
-	public Usuario(String nombre, String apellido, Long dni, String email, String password, Date fechaNac, Set<Reserva> reserva, Set<UsuarioCarrera> usuarioCarrera){
+	public Usuario(String nombre, String apellido, Long dni, String email, String password, String passwordConf, Date fechaNac, Set<Reserva> reserva, Set<UsuarioCarrera> usuarioCarrera){
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.email = email;
 		this.password = password;
+		this.passwordConf = passwordConf;
 		this.reserva = reserva;
 		this.usuarioCarrera = usuarioCarrera;
 	}
@@ -87,10 +89,10 @@ public class Usuario implements java.io.Serializable{
 	}
 	
 	@Column(name = "fechaNac", nullable = false)
-	public Date getFechaNac() {
+	public String getFechaNac() {
 		return this.fechaNac;
 	}
-	public void setFechaNac(Date fechaNac) {
+	public void setFechaNac(String fechaNac) {
 		this.fechaNac = fechaNac;
 	}
 	
@@ -100,6 +102,14 @@ public class Usuario implements java.io.Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Column(name = "passwordConf", nullable = false)
+	public String getPasswordConf() {
+		return this.passwordConf;
+	}
+	public void setPasswordConf(String passwordConf) {
+		this.passwordConf = passwordConf;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")

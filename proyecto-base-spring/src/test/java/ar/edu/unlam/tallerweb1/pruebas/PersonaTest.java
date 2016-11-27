@@ -51,13 +51,5 @@ public class PersonaTest extends SpringTest {
 		Assertions.assertThat(s.get(Carrera.class, carrera1.getID()));
 	}*/
 	
-
-	public void testPersona() {
-		Carrera carrera1 = new Carrera();
-		carrera1.setNombre("carreraNumero1");
-		Session s = getSession();
-		List resultado = (List) s.createCriteria(Carrera.class)
-			.list();
-		
 	}
 }
