@@ -1,73 +1,78 @@
 package tallerweb.keeprunning.modelo;
+
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="Reserva")
-
+@Table (name="reserva", catalog="keeprunning")
 public class Reserva {
 	
+	private Long reservaId;
+	private Carrera carrera;
+	private Usuario usuario;
+	private Date fechaPago;
+	private Long nroComprobante;
+	
+	public Reserva(Carrera carrera, Usuario usuario, Date fechaPago, Long nroComprobante) {
+		this.carrera = carrera;
+		this.usuario = usuario;
+		this.fechaPago = fechaPago;
+		this.nroComprobante = nroComprobante;
+	}
+	
+	public Reserva() {
+	}
+	
 	@Id
-	@Column(name="Id")
-	private Integer ID;
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "reservaId", unique=true, nullable=false)
+	public Long getReservaId() {
+		return this.reservaId;
+	}
+	public void setReservaId(Long reservaId) {
+		this.reservaId = reservaId;
+	}
 	
-	@Column(name="Fecha")
-	private String fecha;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "carreraId", nullable = false)
+	public Carrera getCarrera() {
+		return this.carrera;
+	}
+	public void setCarrera(Carrera carrera) {
+		this.carrera = carrera;
+	}
 	
-	@Column(name="ID_Corredor")
-	private Integer id_corredor;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuarioId", nullable = false)
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
-	@Column(name="Id_Carrera")
-	private Integer id_carrera;
+	@Column(name = "fechaPago", nullable=false)
+	public Date getFechaPago() {
+		return this.fechaPago;
+	}
+	public void setFechaPago(Date fechaPago) {
+		this.fechaPago = fechaPago;
+	}
 	
-	@Column(name="Fecha_Pago")
-	private Date fecha_pago;
-	
-	@Column(name="Nro_Comprobante")
-	private Integer nro_comprobante;
-	
-	public Integer getID() {
-		return ID;
+	@Column(name = "nroComprobante", nullable=false)
+	public Long getNroComprobante() {
+		return this.nroComprobante;
 	}
-	public void setID(Integer iD) {
-		ID = iD;
+	public void setNroComprobante(Long nroComprobante) {
+		this.nroComprobante = nroComprobante;
 	}
-	public Integer getId_corredor() {
-		return id_corredor;
-	}
-	public void setId_corredor(Integer id_corredor) {
-		this.id_corredor = id_corredor;
-	}
-	public String getFecha() {
-		return fecha;
-	}
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-	public Integer getId_carrera() {
-		return id_carrera;
-	}
-	public void setId_carrera(Integer id_carrera) {
-		this.id_carrera = id_carrera;
-	}
-	public Date getFecha_pago() {
-		return fecha_pago;
-	}
-	public void setFecha_pago(Date fecha_pago) {
-		this.fecha_pago = fecha_pago;
-	}
-	public Integer getNro_comprobante() {
-		return nro_comprobante;
-	}
-	public void setNro_comprobante(Integer nro_comprobante) {
-		this.nro_comprobante = nro_comprobante;
-	}
-
-	
-	
-	
 }

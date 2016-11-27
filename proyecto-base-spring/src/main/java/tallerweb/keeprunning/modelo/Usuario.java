@@ -1,116 +1,122 @@
 package tallerweb.keeprunning.modelo;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity @Table(name = "usuario")
-public class Usuario {
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "usuario", catalog = "keeprunning")
 
+public class Usuario implements java.io.Serializable{
+
+	private Long usuarioId;
+	private String nombre;
+	private String apellido;
+	private Long dni;
+	private String email;
+	private String password;
+	private Date fechaNac;
+	private Set<Reserva> reserva = new HashSet<Reserva>(0);
+	private Set<UsuarioCarrera> usuarioCarrera = new HashSet<UsuarioCarrera>(0);
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
-	
-	public long getId() {
-		return id;
+	public Usuario(String nombre, String apellido, Long dni, String email, String password, Date fechaNac, Set<Reserva> reserva, Set<UsuarioCarrera> usuarioCarrera){
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.email = email;
+		this.password = password;
+		this.reserva = reserva;
+		this.usuarioCarrera = usuarioCarrera;
 	}
 	
-	@Column(name="email")	
-	private String email;
+	public Usuario() {
+	}
 	
-	@Column(name="nombre")	
-	private String nombre;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "usuarioId", unique=true, nullable=false)
+	public Long getUsuarioId() {
+		return this.usuarioId;
+	}
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 	
-	@Column(name="apellido")	
-	private String apellido;
-	
-	@Column(name="dni")	
-	private Integer dni;
-	
-	@Column(name="fechaNac")	
-	private String fechaNac;
-	
-	@Column(name="password")	
-	private String password;
-	
-	@Column(name="passwordConf")	
-	private String passwordConf;
-	
+	@Column(name = "nombre", nullable = false)
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
+	@Column(name = "apellido", nullable = false)
 	public String getApellido() {
-		return apellido;
+		return this.apellido;
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
-	}	
-
-	public Integer getDni() {
-		return dni;
 	}
-	public void setDni(Integer dni) {
+	
+	@Column(name = "dni", nullable = false)
+	public Long getDni() {
+		return this.dni;
+	}
+	public void setDni(Long dni) {
 		this.dni = dni;
 	}
 	
+	@Column(name = "email", nullable = false)
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}	
-	
-	public String getFechaNac() {
-		return fechaNac;
 	}
-	public void setFechaNac(String fechaNac) {
+	
+	@Column(name = "fechaNac", nullable = false)
+	public Date getFechaNac() {
+		return this.fechaNac;
+	}
+	public void setFechaNac(Date fechaNac) {
 		this.fechaNac = fechaNac;
 	}
 	
+	@Column(name = "password", nullable = false)
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}	
-	
-	public String getPasswordConf() {
-		return passwordConf;
 	}
-	public void setPasswordConf(String passwordConf) {
-		this.passwordConf = passwordConf;
-	}	
-}
 
-
-
-/*extends HttpServlet {
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	public Set<Reserva> getReserva() {
+		return this.reserva;
+	}
 	
-@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-throws ServletException, IOException {
-String user = req.getParameter("user");
-String pass = req.getParameter("password");
-if ("prueba".equals(user) && "prueba".equals(pass)) {
-response(resp, "Logueo Correcto");
-} else {
-response(resp, "Logueo Incorrecto");
+	public void setReserva(Set<Reserva> reserva) {
+		this.reserva = reserva;
+	}
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.usuario", cascade=CascadeType.ALL)
+	public Set<UsuarioCarrera> getUsuarioCarrera() {
+		return this.usuarioCarrera;
+	}
+
+	public void setUsuarioCarrera(Set<UsuarioCarrera> usuarioCarrera) {
+		this.usuarioCarrera = usuarioCarrera;
+	}
 }
-}
-private void response(HttpServletResponse resp, String msg)
-throws IOException {
-PrintWriter out = resp.getWriter();
-out.println("<html>");
-out.println("<body>");
-out.println("<t1>" + msg + "</t1>");
-out.println("<body>");
-out.println("<html>");
-}
-}*/

@@ -69,11 +69,11 @@ public class ControladorCarreras {
 }*/
 	
 	@RequestMapping(value = "/carrera={id}", method = RequestMethod.GET)
-	public ModelAndView cargarDatosCarrera(@PathVariable("id") int id) {
+	public ModelAndView cargarDatosCarrera(@PathVariable("id") Long id) {
 		Carrera c1 = new Carrera();
 		c1.abrirDetalleDeCarreraPorId(id);
 		ModelMap datosCarrera = new ModelMap();
-		datosCarrera.put("id", c1.getId());		
+		datosCarrera.put("id", c1.getCarreraId());		
 		datosCarrera.put("nombre", c1.getNombre());
 		datosCarrera.put("lugar", c1.getLugar());
 		datosCarrera.put("fecha", c1.getFechaInicio());
@@ -85,23 +85,6 @@ public class ControladorCarreras {
 		vistaCarrera.addAllObjects(datosCarrera);
 		vistaCarrera.setViewName("carreraElegida");
 		return vistaCarrera;
-	}
-		
-	@RequestMapping(value = "/todasLasCarreras", method = RequestMethod.GET)
-	public ModelAndView cargarTodasLasCarreras() {
-		Carrera c1 = new Carrera(1, "Carrera Triathlon");
-		ModelMap datosCarrera = new ModelMap();
-		
-		datosCarrera.put("id", c1.getId());		
-		datosCarrera.put("nombre", c1.getNombre());
-
-		/*Session s = getSession();
-
-		s.save(c1);*/
-		
-		ModelAndView vistaCarreras = new ModelAndView("carreraElegida2");
-		vistaCarreras.addAllObjects(datosCarrera);
-		return vistaCarreras;
 	}
 	
 	@RequestMapping(value = "/todasLasCarreras_de_ref", method = RequestMethod.GET)

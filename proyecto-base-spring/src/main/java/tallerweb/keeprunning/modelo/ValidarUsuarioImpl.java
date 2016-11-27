@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,14 +22,15 @@ public class ValidarUsuarioImpl implements UsuarioService{
 	@Inject
 	private SessionFactory sessionFactory;
 
-
 	@SuppressWarnings("unchecked")
-	//hay que cambiar el tipo de dato
 	public List<Usuario> validarUsuario(String email, String password){
 		//hay que pasarlo al dao
-		Criteria criteria = sessionFactory.openSession().createCriteria(Usuario.class)
-			.add(Restrictions.eq("email", email));
-			return (List<Usuario>) criteria.list();
+		Criteria cr = sessionFactory.openSession().createCriteria(Usuario.class);
+		Criterion mail = Restrictions.eq("email", email);
+		Criterion pass = Restrictions.eq("password", password);
+		LogicalExpression validar = Restrictions.and(mail, pass);
+		cr.add(validar);
+		return (List<Usuario>) cr.list();
 	}
 	
 	public SessionFactory getSessionFactory() {

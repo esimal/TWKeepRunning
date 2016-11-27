@@ -32,34 +32,11 @@
  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript"
-			src="http://localhost:8080/proyecto-base-spring/js/carreraElegida.js"></script>
+			src="../js/carreraElegida.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script>
-			$(document).ready(function() {
-		
-				$("#recorrido").hide();
-				$("#reglamento").hide();
-		
-				$("#btnDescripcion").click(function() {
-					$("#descripcion").show();
-					$("#recorrido").hide();
-					$("#reglamento").hide();
-				});
-				$("#btnRecorrido").click(function() {
-					$("#descripcion").hide();
-					$("#recorrido").show();
-					$("#reglamento").hide();
-				});
-				$("#btnReglamento").click(function() {
-					$("#descripcion").hide();
-					$("#recorrido").hide();
-					$("#reglamento").show();
-				});
-			});
-		</script>
 	</head>
 
 <body>

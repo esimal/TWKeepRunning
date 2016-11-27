@@ -21,9 +21,9 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <!-- Bootstrap theme -->
-	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet">
 	    
-	    <link href="../css/estilos.css" rel="stylesheet">
+	    <link href="../../css/estilos.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -32,7 +32,7 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 					  	<c:when test="${email != null}">
-					  		<li><a class="btn btn-menu" href="proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
+					  		<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
 					  		<li><a class="btn btn-menu" href="#"><span class="glyphicon glyphicon-log-in"></span> ${email}</a></li>
 					  	</c:when>
 					  	<c:otherwise>		
@@ -57,7 +57,7 @@
 						<div>
 							<form method="get" class="form-horizontal" role="form">
 								<div class="form-group">
-						    		<label for="titular" class="col-xs-6">Titular de la Tarjeta:${nombre}/${logueo}</label>
+						    		<label for="titular" class="col-xs-6">Titular de la Tarjeta:</label>
 						    		<div class="col-xs-6">
 										<input type="text" id="titular" class="form-control opciones-inscripcion" required="required"/>
 									</div>

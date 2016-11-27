@@ -34,6 +34,7 @@ public class ControladorLogin {
 		if (nombre.equals("0")){
 			try{
 				request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
+				request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
 			}catch(Exception e){
 				System.out.println("El usuario no existe en la base");
 				return new ModelAndView("redirect:/proyecto-base-spring/login={nombre}");	
