@@ -28,7 +28,8 @@ public class ValidarUsuarioImpl implements ValidarUsuario{
 		Criterion pass = Restrictions.eq("password", password);
 		LogicalExpression validar = Restrictions.and(mail, pass);
 		cr.add(validar);
-		return (List<Usuario>) cr.list();
+		List<Usuario> resultado = cr.list();
+		return resultado;
 	}
 	
 	public SessionFactory getSessionFactory() {

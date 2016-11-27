@@ -44,10 +44,15 @@ public class Carrera implements java.io.Serializable{
 	public Carrera() {
 	}
 	
+	public Carrera(String nombre) {
+		this.nombre = nombre;
+	}
+	
 	public Carrera(Long carreraId, String nombre) {
 		this.carreraId = carreraId;
 		this.nombre = nombre;
 	}
+	
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -132,50 +137,4 @@ public class Carrera implements java.io.Serializable{
 	public void setUsuarioCarrera(Set<UsuarioCarrera> usuarioCarrera) {
 		this.usuarioCarrera = usuarioCarrera;
 	}
-	
-	public void abrirDetalleDeCarreraPorId(Long carreraId){
-		this.carreraId = carreraId;
-		this.lugar = "Campus Universidad de San Andrés (Vito Dumas 284, Victoria 1644 Buenos Aires)";
-		this.fechaInicio = "Domingo 23 de octubre de 2016";
-		this.horaInicio = "10KM y 3KM 9:00hs.";
-		if (this.carreraId == 1) {
-			this.nombre = "Carrera de la Mujer";
-			this.imagenFlyer = "/proyecto-base-spring/img/carrera-mujer-2016.jpg";
-		}else if (this.carreraId == 2){
-			this.nombre = "Carrera de Neon";	
-			this.imagenFlyer = "/proyecto-base-spring/img/carrera-neon.jpg";
-		}else if (this.carreraId == 3){
-			this.nombre = "Carrera por la Educacion";
-			this.imagenFlyer = "/proyecto-base-spring/img/carrera-educacion.jpg";
-		}else if (this.carreraId == 4){
-			this.nombre = "Carrera My Run";
-			this.imagenFlyer = "/proyecto-base-spring/img/carrera21.jpg";
-		}else if (this.carreraId == 5){
-			this.nombre = "Carrera Tandil";
-			this.imagenFlyer = "/proyecto-base-spring/img/flyer-1.jpg";
-		}else if (this.carreraId == 6){
-			this.nombre = "Carrera XEU";	
-			this.imagenFlyer = "/proyecto-base-spring/img/kitcompetencia.jpg";
-		}else if (this.carreraId == 7){
-			this.nombre = "Carrera Nocturna";	
-			this.imagenFlyer = "/proyecto-base-spring/img/maraton-lasrozas.jpg";
-		}else if (this.carreraId == 8){
-			this.nombre = "Carrera Runderful";	
-			this.imagenFlyer = "/proyecto-base-spring/img/carrera22.png";
-		}else if (this.carreraId == 9){
-			this.nombre = "Carrera Espiritu del Vino";	
-			this.imagenFlyer = "/proyecto-base-spring/img/rioja-winerun.jpg";
-		}else if (this.carreraId == 10){
-			this.nombre = "Carrera Bariloche";	
-			this.imagenFlyer = "/proyecto-base-spring/img/the-north-face.jpg";
-		}else if (this.carreraId == 11){
-			this.nombre = "Carrera UCH";	
-			this.imagenFlyer = "/proyecto-base-spring/img/uch-10k-2016.jpg";		
-		}else{
-			this.nombre = "Carrera Triathlon";	
-			this.imagenFlyer = "/proyecto-base-spring/img/vitoria.jpg";	
-		}
-		this.imagenRecorrido = "/proyecto-base-spring/img/circuito21kba.jpg";
-		this.valor = 250;
-	}		
 }

@@ -62,7 +62,6 @@
 			<div class="col-xs-12">
 				<h1 class="page-header text-center titulo">KEEP RUNNING</h1>
 				<h2 class="nombre-carrera">${nombre}</h2>
-				<h2 class="nombre-carrera">${id}</h2>
 			</div>
 
 			<div class="col-xs-12 contenedor-info">
@@ -148,7 +147,7 @@
 						<a href="./login=${email}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
 					</c:when>
 					<c:otherwise>
-						<a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
+						<a href="./inscripcion/${carreraId}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
 					</c:otherwise>
 				</c:choose>	
 						<!-- <a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnInscripcion" id="btnInscripcion" data-toggle="modal">Si ya 

@@ -52,7 +52,7 @@
 	           
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion text-center">
-							<p>${email}, ya estas inscripto a: ${nombre}(TRAERLO DE LA DB)</p><br>
+							<p>${email}, ya estas inscripto a: ${nombre}</p><br>
 							<p>Tu Nro de corredor es: (TRAERLO DE LA DB)${nro_remera}</p>
 						</div>
 						<div class="text-center">

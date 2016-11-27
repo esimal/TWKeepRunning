@@ -1,12 +1,18 @@
 package tallerweb.keeprunning.controladores;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Usuario;
+import tallerweb.keeprunning.servicios.RegistrarUsuario;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
@@ -31,7 +37,7 @@ public class ControladorRegistracion {
 	/*
 	@Inject
 	public RegistrarUsuario registrarUsuario;
-	/*INICIO LOGICA FORMULARIO REGISTRACION
+	//INICIO LOGICA FORMULARIO REGISTRACION
 	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
 	public ModelAndView crearUsuario(@ModelAttribute Usuario usuario, ModelMap model, HttpServletRequest req) {
 		registrarUsuario.registrarUsuario(usuario);
@@ -45,5 +51,8 @@ public class ControladorRegistracion {
 		model.addAttribute("passwordConf", usuario.getPasswordConf());
 		return new ModelAndView("vistaRegistracion",model);
 	}*/
-	/*FIN LOGICA FORMULARIO REGISTRACION*/
+	
+	
+	
+	//FIN LOGICA FORMULARIO REGISTRACION
 }

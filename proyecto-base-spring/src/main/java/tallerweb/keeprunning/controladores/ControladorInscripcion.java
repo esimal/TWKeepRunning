@@ -13,10 +13,9 @@ import tallerweb.keeprunning.modelo.Carrera;
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorInscripcion {
 
-	@RequestMapping(value = "/inscripcion/{id}", method = RequestMethod.GET)
-	public ModelAndView datosInscripcion(@PathVariable("id") Long id) {
-		Carrera c1 = new Carrera();
-		c1.abrirDetalleDeCarreraPorId(id);		
+	@RequestMapping(value = "/inscripcion/{carreraId}", method = RequestMethod.GET)
+	public ModelAndView datosInscripcion(@PathVariable("carreraId") Long carreraId) {
+		Carrera c1 = new Carrera();		
 		ModelMap datosCarrera = new ModelMap();
 		datosCarrera.put("nombre", c1.getNombre());
 		ModelAndView vistaCarrera = new ModelAndView();
@@ -25,10 +24,9 @@ public class ControladorInscripcion {
 		return vistaCarrera;
 		}
 
-	@RequestMapping(value = "/proyecto-base-spring/inscripcion/{id}", method = RequestMethod.GET)
-	public ModelAndView datosInscripcion2(@PathVariable("id") Long id) {
-		Carrera c1 = new Carrera();
-		c1.abrirDetalleDeCarreraPorId(id);		
+	@RequestMapping(value = "/proyecto-base-spring/inscripcion/{carreraId}", method = RequestMethod.GET)
+	public ModelAndView datosInscripcion2(@PathVariable("carreraId") Long carreraId) {
+		Carrera c1 = new Carrera();	
 		ModelMap datosCarrera = new ModelMap();
 		datosCarrera.put("nombre", c1.getNombre());
 		ModelAndView vistaCarrera = new ModelAndView();
