@@ -26,10 +26,10 @@ public class Carrera implements java.io.Serializable{
 	private String imagenFlyer;
 	private String imagenRecorrido;
 	private Integer valor;
-	private Set<Reserva> reserva = new HashSet<Reserva>();
+	private Set<Inscripcion> inscripcion = new HashSet<Inscripcion>();
 	private Set<UsuarioCarrera> usuarioCarrera = new HashSet<UsuarioCarrera>(0);
 	
-	public Carrera(String nombre, String lugar, String fechaInicio, String horaInicio, String imagenFlyer, String imagenRecorrido, Integer valor, Set<Reserva> reserva, Set<UsuarioCarrera> usuarioCarrera){
+	public Carrera(String nombre, String lugar, String fechaInicio, String horaInicio, String imagenFlyer, String imagenRecorrido, Integer valor, Set<Inscripcion> inscripcion, Set<UsuarioCarrera> usuarioCarrera){
 		this.nombre = nombre;
 		this.lugar = lugar;
 		this.fechaInicio = fechaInicio;
@@ -37,7 +37,7 @@ public class Carrera implements java.io.Serializable{
 		this.imagenFlyer = imagenFlyer;
 		this.imagenRecorrido = imagenRecorrido;
 		this.valor = valor;
-		this.reserva = reserva;
+		this.inscripcion = inscripcion;
 		this.usuarioCarrera = usuarioCarrera;
 	}
 	
@@ -121,12 +121,12 @@ public class Carrera implements java.io.Serializable{
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "carrera")
-	public Set<Reserva> getReserva() {
-		return this.reserva;
+	public Set<Inscripcion> getInscripcion() {
+		return this.inscripcion;
 	}
 	
-	public void setReserva(Set<Reserva> reserva) {
-		this.reserva = reserva;
+	public void setInscripcion(Set<Inscripcion> inscripcion) {
+		this.inscripcion = inscripcion;
 	}
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.carrera")

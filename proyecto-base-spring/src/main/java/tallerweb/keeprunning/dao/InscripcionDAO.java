@@ -1,5 +1,5 @@
 package tallerweb.keeprunning.dao;
 
-public class ReservaDAO {
+public class InscripcionDAO {
 
 }

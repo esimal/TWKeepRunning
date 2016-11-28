@@ -21,9 +21,9 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <!-- Bootstrap theme -->
-	    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 	    
-	    <link href="../../css/estilos.css" rel="stylesheet">
+	    <link href="../css/estilos.css" rel="stylesheet">
 	</head>
 	
 	<body>

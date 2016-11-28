@@ -31,13 +31,12 @@ public class ControladorRegistracion {
 	public ModelAndView guardarUsuario(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
 		registarUsuario.grabarUsuario(usuario.getNombre(), usuario.getApellido(), usuario.getDni(), usuario.getFechaNac(), usuario.getEmail(), usuario.getPassword(), usuario.getPasswordConf());
-        System.out.println(usuario.getNombre());
-        System.out.println(usuario.getApellido());
-        System.out.println(usuario.getDni());
-        System.out.println(usuario.getFechaNac());
-   		System.out.println(usuario.getEmail());
-   		System.out.println(usuario.getPassword());
-   		System.out.println(usuario.getPasswordConf());
+        modelAndView.addObject("nombre", usuario.getNombre());
+        modelAndView.addObject("apellido", usuario.getApellido());
+        modelAndView.addObject("dni", usuario.getDni());
+        modelAndView.addObject("fechaNac", usuario.getFechaNac());
+        modelAndView.addObject("email", usuario.getEmail());
+        modelAndView.addObject("password", usuario.getPassword());
         modelAndView.setViewName("miPerfil");
         return modelAndView;
 	}

@@ -29,17 +29,17 @@ public class Usuario implements java.io.Serializable{
 	private String password;
 	private String passwordConf;
 	private String fechaNac;
-	private Set<Reserva> reserva = new HashSet<Reserva>(0);
+	private Set<Inscripcion> inscripcion = new HashSet<Inscripcion>(0);
 	private Set<UsuarioCarrera> usuarioCarrera = new HashSet<UsuarioCarrera>(0);
 	
-	public Usuario(String nombre, String apellido, Long dni, String email, String password, String passwordConf, Date fechaNac, Set<Reserva> reserva, Set<UsuarioCarrera> usuarioCarrera){
+	public Usuario(String nombre, String apellido, Long dni, String email, String password, String passwordConf, Date fechaNac, Set<Inscripcion> inscripcion, Set<UsuarioCarrera> usuarioCarrera){
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.email = email;
 		this.password = password;
 		this.passwordConf = passwordConf;
-		this.reserva = reserva;
+		this.inscripcion = inscripcion;
 		this.usuarioCarrera = usuarioCarrera;
 	}
 	
@@ -113,12 +113,12 @@ public class Usuario implements java.io.Serializable{
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
-	public Set<Reserva> getReserva() {
-		return this.reserva;
+	public Set<Inscripcion> getInscripcion() {
+		return this.inscripcion;
 	}
 	
-	public void setReserva(Set<Reserva> reserva) {
-		this.reserva = reserva;
+	public void setInscripcion(Set<Inscripcion> inscripcion) {
+		this.inscripcion = inscripcion;
 	}
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.usuario", cascade=CascadeType.ALL)

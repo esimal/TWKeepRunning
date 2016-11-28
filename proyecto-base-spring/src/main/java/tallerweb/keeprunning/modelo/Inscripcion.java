@@ -11,35 +11,35 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table (name="reserva", catalog="keeprunning")
-public class Reserva {
+@Table (name="inscripcion", catalog="keeprunning")
+public class Inscripcion {
 	
-	private Long reservaId;
+	private Long inscripcionId;
 	private Carrera carrera;
 	private Usuario usuario;
-	private Date fechaPago;
-	private Long nroComprobante;
+	private Date fechaPago = new Date();
 	
-	public Reserva(Carrera carrera, Usuario usuario, Date fechaPago, Long nroComprobante) {
+	public Inscripcion(Carrera carrera, Usuario usuario, Date fechaPago) {
 		this.carrera = carrera;
 		this.usuario = usuario;
 		this.fechaPago = fechaPago;
-		this.nroComprobante = nroComprobante;
 	}
 	
-	public Reserva() {
+	public Inscripcion() {
 	}
 	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "reservaId", unique=true, nullable=false)
-	public Long getReservaId() {
-		return this.reservaId;
+	@Column(name = "inscripcionId", unique=true, nullable=false)
+	public Long getInscripcionId() {
+		return this.inscripcionId;
 	}
-	public void setReservaId(Long reservaId) {
-		this.reservaId = reservaId;
+	public void setInscripcionId(Long inscripcionId) {
+		this.inscripcionId = inscripcionId;
 	}
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -60,19 +60,12 @@ public class Reserva {
 		this.usuario = usuario;
 	}
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "fechaPago", nullable=false)
 	public Date getFechaPago() {
 		return this.fechaPago;
 	}
 	public void setFechaPago(Date fechaPago) {
 		this.fechaPago = fechaPago;
-	}
-	
-	@Column(name = "nroComprobante", nullable=false)
-	public Long getNroComprobante() {
-		return this.nroComprobante;
-	}
-	public void setNroComprobante(Long nroComprobante) {
-		this.nroComprobante = nroComprobante;
 	}
 }

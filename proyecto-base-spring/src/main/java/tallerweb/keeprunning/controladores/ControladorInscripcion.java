@@ -1,13 +1,19 @@
 package tallerweb.keeprunning.controladores;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Carrera;
+import tallerweb.keeprunning.modelo.Inscripcion;
+import tallerweb.keeprunning.servicios.RegistrarInscripcion;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
@@ -15,60 +21,29 @@ public class ControladorInscripcion {
 
 	@RequestMapping(value = "/inscripcion/{carreraId}", method = RequestMethod.GET)
 	public ModelAndView datosInscripcion(@PathVariable("carreraId") Long carreraId) {
-		Carrera c1 = new Carrera();		
+		Carrera carrera = new Carrera();		
 		ModelMap datosCarrera = new ModelMap();
-		datosCarrera.put("nombre", c1.getNombre());
-		ModelAndView vistaCarrera = new ModelAndView();
-		vistaCarrera.addAllObjects(datosCarrera);
-		vistaCarrera.setViewName("inscripcion");
-		return vistaCarrera;
-		}
-
-	@RequestMapping(value = "/proyecto-base-spring/inscripcion/{carreraId}", method = RequestMethod.GET)
-	public ModelAndView datosInscripcion2(@PathVariable("carreraId") Long carreraId) {
-		Carrera c1 = new Carrera();	
-		ModelMap datosCarrera = new ModelMap();
-		datosCarrera.put("nombre", c1.getNombre());
+		datosCarrera.put("nombre", carrera.getNombre());
 		ModelAndView vistaCarrera = new ModelAndView();
 		vistaCarrera.addAllObjects(datosCarrera);
 		vistaCarrera.setViewName("inscripcion");
 		return vistaCarrera;
 		}
 	
-	/*@RequestMapping(value = "/inscripcion/{id}", method = RequestMethod.GET)
-	public ModelAndView vistaInscripcion(Model modelo) {
-		ModelAndView Inscripcion = new ModelAndView();
-		modelo.addAttribute("classInscripcion", new Usuario());
-		Inscripcion.setViewName("Inscripcion");
-		return Inscripcion;
-	}
-	
-	
-	@RequestMapping(value="/inscripcion={id}",  method = RequestMethod.POST)
-	public ModelAndView inscribir(@ModelAttribute("classInscripcion") Usuario usuario, @PathVariable("id") String id) {
-			ModelMap model = new ModelMap();
-			return new ModelAndView("inscripcion", model);	
-	}*/
-	
+	@Inject
+	private RegistrarInscripcion registrarInscripcion;
 	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
-	public ModelAndView vistaInscripcion() {
+	public ModelAndView guardarInscripcion(@ModelAttribute("inscripcion") Inscripcion inscripcion, HttpServletRequest request) {
+		registrarInscripcion.grabarInscripcion(inscripcion.getCarrera(), inscripcion.getUsuario(), inscripcion.getFechaPago());
 		ModelMap model = new ModelMap();
-		return new ModelAndView("inscripcion-pago", model);
-	}
-
-	@RequestMapping(value = "/proyecto-base-spring/inscripcion-pago", method = RequestMethod.GET)
-	public ModelAndView vistaInscripcion2() {
-		ModelMap model = new ModelMap();
+		System.out.println(inscripcion.getCarrera());
+   		System.out.println(inscripcion.getUsuario());
+   		System.out.println(inscripcion.getFechaPago());
 		return new ModelAndView("inscripcion-pago", model);
 	}
 	
 	@RequestMapping(value = "/inscripcion-fin", method = RequestMethod.GET)
 	public ModelAndView vistaInscripcionFin() {
-		return new ModelAndView("inscripcion-fin");
-	}
-
-	@RequestMapping(value = "/proyecto-base-spring/inscripcion-fin", method = RequestMethod.GET)
-	public ModelAndView vistaInscripcionFin2() {
 		return new ModelAndView("inscripcion-fin");
 	}
 }

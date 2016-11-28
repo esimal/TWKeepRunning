@@ -21,9 +21,9 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <!-- Bootstrap theme -->
-	    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 	    
-	    <link href="../../css/estilos.css" rel="stylesheet">
+	    <link href="../css/estilos.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -55,7 +55,7 @@
 							<h3>Datos de la Tarjeta</h3>
 						</div>
 						<div>
-							<form method="get" class="form-horizontal" role="form">
+							<form method="GET" class="form-horizontal" role="form">
 								<div class="form-group">
 						    		<label for="titular" class="col-xs-6">Titular de la Tarjeta:</label>
 						    		<div class="col-xs-6">
