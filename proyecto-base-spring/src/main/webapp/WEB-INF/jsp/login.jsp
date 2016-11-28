@@ -56,7 +56,7 @@
 	                <h2 class="text-center texto-login">Login</h2>
 	           		<div class="col-xs-6 col-xs-offset-3">${error}</div>
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-login">
-						<form:form method="post" modelAttribute="classLogin" class="form-horizontal" role="form">
+						<form:form method="POST" modelAttribute="classLogin" class="form-horizontal" role="form">
 							<div class="form-group">
 								<label for="email">Email</label>
 								<form:input type="text" path="email" class="form-control" id="usuario" required="required"/>

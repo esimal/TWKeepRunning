@@ -1,39 +1,41 @@
 package tallerweb.keeprunning.servicios;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
-import ar.edu.unlam.tallerweb1.pruebas.SpringTest;
 import tallerweb.keeprunning.modelo.Usuario;
-/*
+import tallerweb.keeprunning.servicios.RegistrarUsuario;;
+
 @Service
 @ContextConfiguration(locations={"/hibernateContext.xml"})
-public class RegistrarUsuarioImpl implements RegistrarUsuario{
-	
+public class RegistrarUsuarioImpl implements RegistrarUsuario {
+		
 	@Inject
 	private SessionFactory sessionFactory;
 	
-	@Transactional
-	@Commit
-	public void registrarUsuario(Usuario usuario){
-		usuario.setNombre(usuario.getNombre());
-		usuario.setApellido(usuario.getApellido());
-		usuario.setDni(usuario.getDni());
-		usuario.setEmail(usuario.getEmail());
-		usuario.setFechaNac(usuario.getFechaNac());
-		usuario.setPassword(usuario.getPassword());
-		usuario.setPasswordConf(usuario.getPasswordConf());
-		Session s = (Session) getSessionFactory();
+	public List<Usuario> grabarUsuario(String nombre, String apellido, Long dni , String fechaNac, String email, String password, String passwordConf){
+		Usuario usuario = new Usuario();
+		usuario.setNombre(nombre);
+		usuario.setApellido(apellido);
+		usuario.setDni(dni);
+		usuario.setFechaNac(fechaNac);
+		usuario.setEmail(email);
+		usuario.setPassword(password);
+		usuario.setPasswordConf(passwordConf);
+		Session s = sessionFactory.openSession();
+		s.beginTransaction();
 		s.save(usuario);
+		s.getTransaction().commit();
+		List<Usuario> resultado = null;
+		return resultado;
 	}
-	
+
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
@@ -41,4 +43,4 @@ public class RegistrarUsuarioImpl implements RegistrarUsuario{
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-}*/
+}

@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +17,6 @@ import tallerweb.keeprunning.servicios.RegistrarUsuario;
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorRegistracion {
 
-	/*INICIO LOGICA FORMULARIO REGISTRACION*/
 	@RequestMapping(value="/registracion",  method = RequestMethod.GET)
 	public ModelAndView vistaRegistrar(Model modelo) {
 		ModelAndView altaUsuario = new ModelAndView();
@@ -26,33 +24,21 @@ public class ControladorRegistracion {
 		altaUsuario.setViewName("registracion");
 		return altaUsuario;
 	}
-	
+
+	@Inject
+	private RegistrarUsuario registarUsuario;
 	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
-	public ModelAndView guardarUsuario(Usuario classRegistrarse) {
+	public ModelAndView guardarUsuario(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("registrarseObj", classRegistrarse);
+		registarUsuario.grabarUsuario(usuario.getNombre(), usuario.getApellido(), usuario.getDni(), usuario.getFechaNac(), usuario.getEmail(), usuario.getPassword(), usuario.getPasswordConf());
+        System.out.println(usuario.getNombre());
+        System.out.println(usuario.getApellido());
+        System.out.println(usuario.getDni());
+        System.out.println(usuario.getFechaNac());
+   		System.out.println(usuario.getEmail());
+   		System.out.println(usuario.getPassword());
+   		System.out.println(usuario.getPasswordConf());
         modelAndView.setViewName("miPerfil");
         return modelAndView;
 	}
-	/*
-	@Inject
-	public RegistrarUsuario registrarUsuario;
-	//INICIO LOGICA FORMULARIO REGISTRACION
-	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
-	public ModelAndView crearUsuario(@ModelAttribute Usuario usuario, ModelMap model, HttpServletRequest req) {
-		registrarUsuario.registrarUsuario(usuario);
-		req.getSession().setAttribute("usuario", usuario.getNombre());
-		model.addAttribute("nombre", usuario.getNombre());
-		model.addAttribute("apellido", usuario.getApellido());
-		model.addAttribute("dni", usuario.getDni());
-		model.addAttribute("email", usuario.getEmail());
-		model.addAttribute("fechaNac", usuario.getFechaNac());
-		model.addAttribute("password", usuario.getPassword());
-		model.addAttribute("passwordConf", usuario.getPasswordConf());
-		return new ModelAndView("vistaRegistracion",model);
-	}*/
-	
-	
-	
-	//FIN LOGICA FORMULARIO REGISTRACION
 }

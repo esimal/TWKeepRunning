@@ -51,7 +51,7 @@
 	                <h2 class="text-center texto-login">Registración</h2>
 	           
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">
-						<form:form method="post" modelAttribute="classRegistrarse" class="form-horizontal" role="form">
+						<form:form method="POST" modelAttribute="classRegistrarse" class="form-horizontal" role="form">
 							<div class="form-group">
 						    	<label for="nombre_usr">Nombre:</label>
 								<form:input path="nombre" type="text" id="nombre_usr" class="form-control" required="required"/>

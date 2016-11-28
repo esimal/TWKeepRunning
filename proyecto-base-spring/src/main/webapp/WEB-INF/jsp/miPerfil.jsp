@@ -8,17 +8,17 @@
 <head>
 <body>
 	<div>LOS DATOS DE USUARIO INGRESADOS FUERON:</div>
-	<div>Nombre : ${nombre}</div>
-	<div> ${registrarseObj.nombre} </div>
+	<div>Nombre</div>
+	<div> ${nombre} </div>
 	<div>Apellido </div>
-	<div> ${registrarseObj.apellido} </div>
+	<div> ${apellido} </div>
 	<div>Dni </div>
-	<div> ${registrarseObj.dni} </div>
+	<div> ${dni} </div>
 	<div>Email </div>
-	<div> ${registrarseObj.email} </div>
+	<div> ${email} </div>
 	<div>FechaNacimiento </div>
-	<div> ${registrarseObj.fechaNac} </div>
+	<div> ${fechaNac} </div>
 	<div>Contraseña </div>
-	<div> ${registrarseObj.password} </div>
+	<div> ${password} </div>
 </body>
 </html>

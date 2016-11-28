@@ -50,10 +50,6 @@ public class ControladorLogin {
 				return new ModelAndView("login", model2);
 			}	
 		}
-	public void setUsuarioService(ValidarUsuario servicioMock) {
-	// TODO Auto-generated method stub
-
-	}
 	
 	@RequestMapping(value = "/login={nombre}", method = RequestMethod.GET)
 	public ModelAndView vistaLogin (Model modelo) {
@@ -61,7 +57,7 @@ public class ControladorLogin {
 		modelo.addAttribute("classLogin", new Usuario());
 		login.setViewName("login");
 		return login;
-	}	
+	}
 	
 	/*@RequestMapping(value="/login={nombre}",  method = RequestMethod.POST)
 	/* hay que meter el servicio y buscar los datos en la base!!!! 
