@@ -72,4 +72,7 @@ public class ControladorLogin {
 		request.getSession().invalidate();
 		return new ModelAndView("redirect:/");
 	}
+
+	public void setValidarUsuario(ValidarUsuario servicioMock) {
+	}
 }

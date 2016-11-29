@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb1.pruebas;
+/*package ar.edu.unlam.tallerweb1.pruebas;
 
 import java.util.List;
 
@@ -20,10 +20,10 @@ public class PersonaTest extends SpringTest {
 	 * transaccional,y @Rollback SPRING borra los datos de los tests
 	 */
 	/* esto es una Herencia */
-	@Test
-	@Transactional
+	//@Test
+	//@Transactional
 	//@Rollback
-	@Commit
+	//@Commit
 	/*public void testPersona() {
 		Persona seba = new Persona();
 		seba.setNombre("Sebastian");
@@ -51,5 +51,5 @@ public class PersonaTest extends SpringTest {
 		Assertions.assertThat(s.get(Carrera.class, carrera1.getID()));
 	}*/
 	
-	}
-}
+	//}
+//}
