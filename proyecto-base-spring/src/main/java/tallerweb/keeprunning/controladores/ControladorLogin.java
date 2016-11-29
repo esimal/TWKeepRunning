@@ -21,37 +21,7 @@ import tallerweb.keeprunning.servicios.ValidarUsuario;
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorLogin {
 
-	@Inject
-	private ValidarUsuario usuarioService;
-	@RequestMapping(path="/login={nombre}", method = RequestMethod.POST)
-
-	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("nombre") String nombre) {
-
-	List<Usuario> usuarioValidado = usuarioService.validarUsuario(usuario.getEmail(), usuario.getPassword());
-
-	if(usuarioValidado != null){
-		ModelMap model = new ModelMap();
-		if (nombre.equals("0")){
-			try{
-				request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
-				request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
-			}catch(Exception e){
-				System.out.println("El usuario no existe en la base");
-				return new ModelAndView("redirect:/proyecto-base-spring/login={nombre}");	
-			}
-			return new ModelAndView("redirect:/");
-		}else{
-			return new ModelAndView("inscripcion", model);
-		}
-			} else {
-				ModelMap model2 = new ModelMap();
-				model2.put("error", "usuario-invalido");
-				request.getSession().invalidate();
-				return new ModelAndView("login", model2);
-			}	
-		}
-	
-	@RequestMapping(value = "/login={nombre}", method = RequestMethod.GET)
+	@RequestMapping(value = "/login={param}", method = RequestMethod.GET)
 	public ModelAndView vistaLogin (Model modelo) {
 		ModelAndView login = new ModelAndView();
 		modelo.addAttribute("classLogin", new Usuario());
@@ -59,37 +29,46 @@ public class ControladorLogin {
 		return login;
 	}
 	
-	/*@RequestMapping(value="/login={nombre}",  method = RequestMethod.POST)
-	/* hay que meter el servicio y buscar los datos en la base!!!! 
-	public ModelAndView ingresarUsuario(@ModelAttribute("classLogin") Usuario usuario, HttpServletRequest request, @PathVariable("nombre") String nombre) {
-		if(usuario.getEmail().equals("mariano9@hotmail.com") && usuario.getPassword().equals("dmc")){
-			ModelMap model = new ModelMap();
-			model.put("nombre", nombre);
-			request.getSession().setAttribute("logueo", "mariano9@hotmail.com");
-			if (nombre.equals("0")){
-				return new ModelAndView("redirect:/");
-			}else{
-				return new ModelAndView("inscripcion", model);				
+	@Inject
+	private ValidarUsuario validarUsuario;
+	@RequestMapping(path="/login={param}", method = RequestMethod.POST)
+	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") String param) {
+
+		List<Usuario> usuarioValidado = validarUsuario.validarUsuario(usuario.getEmail(), usuario.getPassword());
+		ModelMap model = new ModelMap();
+		if(usuarioValidado != null){
+			if (param.equals("0")){
+				try{
+					request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
+					request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
+				}catch(Exception e){
+					System.out.println("El usuario no existe en la base");
+					model.put("param", param);
+					return new ModelAndView("ingresoIncorrecto");
+				}
+				System.out.println("Usuario existente");		
+				return new ModelAndView("redirect:/", model);
+			} else {
+				try{
+					request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
+					request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
+				}catch(Exception e){
+					System.out.println("El usuario no existe en la base");
+					model.put("param", param);
+					return new ModelAndView("ingresoIncorrecto");
+				}
+				System.out.println("Usuario Existente.");		
+				return new ModelAndView("inscripcion", model);			
 			}
-
 		} else {
-			ModelMap model = new ModelMap();
+			System.out.println("El usuario no existe en la base");
 			model.put("error", "usuario-invalido");
-			request.getSession().invalidate();
 			return new ModelAndView("login", model);
-		}		
-	}*/
-
-	
+		}
+	}
 	
 	@RequestMapping(value = "/0", method = RequestMethod.GET)
 	public ModelAndView vistaLogout (HttpServletRequest request) {
-		request.getSession().invalidate();
-		return new ModelAndView("redirect:/");
-	}
-
-	@RequestMapping(value = "/proyecto-base-spring/0", method = RequestMethod.GET)
-	public ModelAndView vistaLogout2 (HttpServletRequest request) {
 		request.getSession().invalidate();
 		return new ModelAndView("redirect:/");
 	}

@@ -43,7 +43,7 @@ public class Inscripcion {
 	}
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "carreraId", nullable = false)
+	@JoinColumn(name = "carreraId")
 	public Carrera getCarrera() {
 		return this.carrera;
 	}
@@ -52,7 +52,7 @@ public class Inscripcion {
 	}
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "usuarioId", nullable = false)
+	@JoinColumn(name = "usuarioId")
 	public Usuario getUsuario() {
 		return this.usuario;
 	}
@@ -61,7 +61,7 @@ public class Inscripcion {
 	}
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fechaPago", nullable=false)
+	@Column(name = "fechaPago")
 	public Date getFechaPago() {
 		return this.fechaPago;
 	}

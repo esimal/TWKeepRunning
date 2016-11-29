@@ -30,6 +30,7 @@ public class ControladorInscripcion {
 		return vistaCarrera;
 		}
 	
+	//modificar para que tome el id de la carrera y del usuario
 	@Inject
 	private RegistrarInscripcion registrarInscripcion;
 	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
