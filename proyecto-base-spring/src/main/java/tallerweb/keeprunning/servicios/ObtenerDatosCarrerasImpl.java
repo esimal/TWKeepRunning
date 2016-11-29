@@ -1,4 +1,4 @@
-package tallerweb.keeprunning.modelo;
+package tallerweb.keeprunning.servicios;
 
 import java.util.List;
 

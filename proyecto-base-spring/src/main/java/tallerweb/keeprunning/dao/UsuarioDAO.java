@@ -1,5 +1,9 @@
-package tallerweb.keeprunning.dao;
+/*package tallerweb.keeprunning.dao;
 
-public class UsuarioDAO {
-	
-}
+import java.util.List;
+
+import tallerweb.keeprunning.modelo.Usuario;
+
+public interface UsuarioDAO {
+	public List<Usuario> obtenerUsuario(String email, String password);
+}*/

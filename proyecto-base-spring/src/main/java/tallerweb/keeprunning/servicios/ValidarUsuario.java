@@ -6,4 +6,4 @@ import tallerweb.keeprunning.modelo.Usuario;
 
 public interface ValidarUsuario {
 	public List<Usuario> validarUsuario(String email, String password);
-	}
+}

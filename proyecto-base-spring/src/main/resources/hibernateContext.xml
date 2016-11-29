@@ -30,7 +30,7 @@
 		<property name="packagesToScan">
 			<list>
 			<value>tallerweb.keeprunning.modelo</value>
-			<value>tallerweb.keeprunning.modelopersona</value>			
+			<value>tallerweb.keeprunning.dao</value>			
 			</list>
 		</property>
 	</bean>

@@ -30,11 +30,11 @@ public class ControladorLogin {
 	}
 	
 	@Inject
-	private ValidarUsuario validarUsuario;
+	private ValidarUsuario validar;
 	@RequestMapping(path="/login={param}", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") String param) {
 
-		List<Usuario> usuarioValidado = validarUsuario.validarUsuario(usuario.getEmail(), usuario.getPassword());
+		List<Usuario> usuarioValidado = validar.validarUsuario(usuario.getEmail(), usuario.getPassword());
 		ModelMap model = new ModelMap();
 		if(usuarioValidado != null){
 			if (param.equals("0")){

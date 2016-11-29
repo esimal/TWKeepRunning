@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb1.pruebas;
+package ar.edu.unlam.tallerweb.keeprunning.test;
 
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import tallerweb.keeprunning.controladores.ControladorLogin;
 import tallerweb.keeprunning.modelo.Usuario;
-import tallerweb.keeprunning.servicios.ValidarUsuario;;
+import tallerweb.keeprunning.servicios.ValidarUsuario;
 
 public class LoginTest {
 	
@@ -23,8 +23,8 @@ public class LoginTest {
 		ValidarUsuario servicioMock = mock(ValidarUsuario.class);
 		when (servicioMock.validarUsuario(anyString(), anyString())).thenReturn(null);
 		controlador.setValidarUsuario(servicioMock);
-		ModelAndView mav = controlador.login(usuario, requestMock, param);
+		ModelAndView mav = controlador.login(usuario, requestMock, "");
 		assertThat(mav.getModel().get("error")).isEqualTo("usuario-invalido");
-		assertThat(mav.getViewName()).isEqualTo("login");		
+		assertThat(mav.getViewName()).isEqualTo("login");
 	}
 }
