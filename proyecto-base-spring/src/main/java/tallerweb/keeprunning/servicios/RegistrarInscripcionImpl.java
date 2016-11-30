@@ -2,6 +2,7 @@ package tallerweb.keeprunning.servicios;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.inject.Inject;
 
@@ -21,11 +22,12 @@ public class RegistrarInscripcionImpl implements RegistrarInscripcion {
 	@Inject
 	private SessionFactory sessionFactory;
 	
-	public List<Inscripcion> grabarInscripcion(Carrera carrera, Usuario usuario, Date fechaPago){
+	public List<Inscripcion> grabarInscripcion(Carrera carrera, Usuario usuario, Date fechaPago, Random nroCorredor){
 		Inscripcion inscripcion = new Inscripcion();
 		inscripcion.setCarrera(carrera);
 		inscripcion.setUsuario(usuario);
 		inscripcion.setFechaPago(fechaPago);
+		inscripcion.setNroCorredor(nroCorredor);
 		Session s = sessionFactory.openSession();
 		s.beginTransaction();
 		s.save(inscripcion);
