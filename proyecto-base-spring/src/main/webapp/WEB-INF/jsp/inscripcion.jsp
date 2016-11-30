@@ -31,13 +31,14 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 				  	<c:when test="${email != null}">
-					  		<li><a class="btn btn-menu" href="/proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-				  			<li><a class="btn btn-menu" href="#">${email}</a></li>
+				  		<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+					  	<li><a class="btn btn-menu" href="/proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+				  		<li><a class="btn btn-menu" href="#">${email}</a></li>
 				  	</c:when>
 				  	<c:otherwise>
-							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-							<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-				  			<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+						<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+				  		<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</c:otherwise>
 					</c:choose>
 				</ul>

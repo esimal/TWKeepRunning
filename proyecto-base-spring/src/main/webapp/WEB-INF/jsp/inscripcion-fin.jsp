@@ -32,6 +32,7 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 					  	<c:when test="${email != null}">
+					  		<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 					  		<li><a class="btn btn-menu" href="/proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
 					  		<li><a class="btn btn-menu" href="#"><span class="glyphicon glyphicon-log-in"></span> ${email}</a></li>
 					  	</c:when>

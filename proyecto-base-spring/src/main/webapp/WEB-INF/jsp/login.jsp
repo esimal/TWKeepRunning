@@ -64,7 +64,7 @@
 							<br>
 							<div class="form-group">
 								<label for="password">Contraseña</label>
-								<form:input type="text" path="password" class="form-control" id="contraseña" required="required"/>
+								<form:input type="password" path="password" class="form-control" id="contraseña" required="required"/>
 							</div>
 							<br>
 							<div class="text-center">

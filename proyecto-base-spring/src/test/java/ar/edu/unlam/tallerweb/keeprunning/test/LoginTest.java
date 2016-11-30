@@ -23,7 +23,7 @@ public class LoginTest {
 		ValidarUsuario servicioMock = mock(ValidarUsuario.class);
 		when (servicioMock.validarUsuario(anyString(), anyString())).thenReturn(null);
 		controlador.setValidarUsuario(servicioMock);
-		ModelAndView mav = controlador.login(usuario, requestMock, "");
+		ModelAndView mav = controlador.login(usuario, requestMock, "0");
 		assertThat(mav.getModel().get("error")).isEqualTo("usuario-invalido");
 		assertThat(mav.getViewName()).isEqualTo("login");
 	}
