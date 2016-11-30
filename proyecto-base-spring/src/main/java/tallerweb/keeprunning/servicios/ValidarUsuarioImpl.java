@@ -1,3 +1,25 @@
+/*package tallerweb.keeprunning.servicios;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.test.context.ContextConfiguration;
+
+import tallerweb.keeprunning.modelo.Usuario;
+import tallerweb.keeprunning.servicios.ValidarUsuarioDAO;
+
+@Service
+@ContextConfiguration(locations={"/hibernateContext.xml"})
+public class ValidarUsuarioImpl implements ValidarUsuario{
+	
+	public List<Usuario> validarUsuario(String email, String password){
+		ValidarUsuarioDAO objUsuarioDAO = new ValidarUsuarioDAOImpl();
+		List<Usuario> lstUsuarios = objUsuarioDAO.validarUsuario(email, password);
+		
+		return lstUsuarios;
+	}
+}*/
+
 package tallerweb.keeprunning.servicios;
 
 import java.util.List;
@@ -13,21 +35,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 
 import tallerweb.keeprunning.modelo.Usuario;
-//import tallerweb.keeprunning.dao.UsuarioDAOImpl;
 import tallerweb.keeprunning.servicios.ValidarUsuario;
 
 @Service
 @ContextConfiguration(locations={"/hibernateContext.xml"})
 public class ValidarUsuarioImpl implements ValidarUsuario{
-	
-	
-/*
-	public List<Usuario> validarUsuario(String email, String password){
-		UsuarioDAOImpl objUsuarioDAO = new UsuarioDAOImpl();
-		List<Usuario> lstUsuarios = objUsuarioDAO.obtenerUsuario(email, password);
-		
-		return lstUsuarios;
-	}*/
 	
 	@Inject
 	private SessionFactory sessionFactory;

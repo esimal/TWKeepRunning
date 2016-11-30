@@ -13,22 +13,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 
 import tallerweb.keeprunning.modelo.Usuario;
-//import tallerweb.keeprunning.dao.UsuarioDAOImpl;
-import tallerweb.keeprunning.servicios.ValidarUsuario;
+import tallerweb.keeprunning.servicios.ValidarUsuarioDAO;
 
 @Service
 @ContextConfiguration(locations={"/hibernateContext.xml"})
-public class ValidarUsuarioImpl2 implements ValidarUsuario{
+public class ValidarUsuarioDAOImpl implements ValidarUsuarioDAO{
 	
-	
-/*
-	public List<Usuario> validarUsuario(String email, String password){
-		UsuarioDAOImpl objUsuarioDAO = new UsuarioDAOImpl();
-		List<Usuario> lstUsuarios = objUsuarioDAO.obtenerUsuario(email, password);
-		
-		return lstUsuarios;
-	}*/
-	/*
 	@Inject
 	private SessionFactory sessionFactory;
 	

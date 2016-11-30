@@ -32,7 +32,7 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 					  	<c:when test="${email != null}">
-					  		<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
+					  		<li><a class="btn btn-menu" href="/proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
 					  		<li><a class="btn btn-menu" href="#"><span class="glyphicon glyphicon-log-in"></span> ${email}</a></li>
 					  	</c:when>
 					  	<c:otherwise>							  						  	
@@ -53,7 +53,7 @@
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion text-center">
 							<p>${email}, ya estas inscripto a: ${nombre}</p><br>
-							<p>Tu Nro de corredor es: (TRAERLO DE LA DB)${nro_remera}</p>
+							<p>Tu Nro de corredor es: ${nroCorredor}</p>
 						</div>
 						<div class="text-center">
 							<a class="btn btn-primary btnContinuar" href="/proyecto-base-spring">Finalizar</a>

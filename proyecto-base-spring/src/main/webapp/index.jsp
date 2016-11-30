@@ -33,7 +33,6 @@
 				  	<c:choose>
 					  	<c:when test="${email != null}">
 					  		<li><a class="btn btn-menu" href="proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-					  		<li><a class="btn btn-menu" href="proyecto-base-spring/miPerfil=${usuarioId}"><span class="glyphicon glyphicon-log-in"></span> Mi Perfil</a></li>
 					  		<li><a class="btn btn-menu" href="#">${email}</a></li>
 					  	</c:when>
 					  	<c:otherwise>

@@ -30,21 +30,22 @@ public class ControladorInscripcion {
 		return vistaCarrera;
 		}
 	
+	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
+	public ModelAndView vistaInscripcionPago() {
+		return new ModelAndView("inscripcion-pago");
+	}
+	
 	//modificar para que tome el id de la carrera y del usuario
 	@Inject
 	private RegistrarInscripcion registrarInscripcion;
-	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
+	@RequestMapping(value = "/inscripcion-fin", method = RequestMethod.GET)
 	public ModelAndView guardarInscripcion(@ModelAttribute("inscripcion") Inscripcion inscripcion, HttpServletRequest request) {
 		registrarInscripcion.grabarInscripcion(inscripcion.getCarrera(), inscripcion.getUsuario(), inscripcion.getFechaPago());
-		ModelMap model = new ModelMap();
+		ModelMap ins = new ModelMap();
 		System.out.println(inscripcion.getCarrera());
    		System.out.println(inscripcion.getUsuario());
    		System.out.println(inscripcion.getFechaPago());
-		return new ModelAndView("inscripcion-pago", model);
-	}
-	
-	@RequestMapping(value = "/inscripcion-fin", method = RequestMethod.GET)
-	public ModelAndView vistaInscripcionFin() {
-		return new ModelAndView("inscripcion-fin");
+   		ins.addAttribute("nroCorredor", inscripcion.getNroCorredor().nextInt(10000) + 1);
+		return new ModelAndView("inscripcion-fin", ins);
 	}
 }

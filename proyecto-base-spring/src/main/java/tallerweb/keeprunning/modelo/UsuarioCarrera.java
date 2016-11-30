@@ -21,7 +21,6 @@ import javax.persistence.Transient;
 public class UsuarioCarrera implements java.io.Serializable{
 
 	private UsuarioCarreraId pk = new UsuarioCarreraId();
-	private Long nroRemera;
 	private Long puesto;
 	private String tiempo;
  
@@ -54,21 +53,13 @@ public class UsuarioCarrera implements java.io.Serializable{
 	public void setCarrera(Carrera carrera) {
 		getPk().setCarrera(carrera);
 	}
-
-	@Column(name = "nroRemera", nullable = false)
-    public Long nroRemera() {
-        return this.nroRemera;
-    }
-    public void nroRemera(Long nroRemera) {
-        this.nroRemera = nroRemera;
-    }
     
     @Column(name = "puesto")
     public Long puesto() {
         return this.puesto;
     }
     public void puesto(Long puesto) {
-        this.nroRemera = puesto;
+        this.puesto = puesto;
     }
     
     @Column(name = "tiempo")

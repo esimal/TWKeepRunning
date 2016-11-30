@@ -1,6 +1,7 @@
 package tallerweb.keeprunning.modelo;
 
 import java.util.Date;
+import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,11 +23,13 @@ public class Inscripcion {
 	private Carrera carrera;
 	private Usuario usuario;
 	private Date fechaPago = new Date();
+	private Random nroCorredor = new Random();
 	
-	public Inscripcion(Carrera carrera, Usuario usuario, Date fechaPago) {
+	public Inscripcion(Carrera carrera, Usuario usuario, Date fechaPago, Random nroCorredor) {
 		this.carrera = carrera;
 		this.usuario = usuario;
 		this.fechaPago = fechaPago;
+		this.nroCorredor = nroCorredor;
 	}
 	
 	public Inscripcion() {
@@ -67,5 +70,13 @@ public class Inscripcion {
 	}
 	public void setFechaPago(Date fechaPago) {
 		this.fechaPago = fechaPago;
+	}
+	
+	@Column(name = "nroCorredor")
+	public Random getNroCorredor() {
+		return this.nroCorredor;
+	}
+	public void setNroCorredor(Random nroCorredor) {
+		this.nroCorredor = nroCorredor;
 	}
 }
