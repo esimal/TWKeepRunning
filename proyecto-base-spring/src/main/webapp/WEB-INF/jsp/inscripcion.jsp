@@ -62,8 +62,14 @@
 							    	<div class="col-xs-8">
 										<select id="distancia" class="form-control opciones-inscripcion">
 											<option value=""> Seleccione una Distacia </option>
+											<option value="1K"> 1K </option>
+											<option value="3K"> 3K </option>
 											<option value="5K"> 5K </option>
 											<option value="10K"> 10K </option>
+											<option value="21K"> 21K </option>
+											<option value="42K"> 42K </option>
+											<option value="50K"> 50K </option>
+											<option value="80K"> 80K </option>
 										</select>
 									</div>
 								</div>

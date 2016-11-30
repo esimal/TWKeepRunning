@@ -53,8 +53,8 @@
 	           
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion text-center">
-							<p>${email}, ya estas inscripto a: ${nombre}</p><br>
-							<p>Tu Nro de corredor es: ${nroCorredor}</p>
+							<p><b>${email}</b>, ya estas inscripto a: <b>${nombre}</b></p><br>
+							<p>Tu Nro de corredor es: <b>${nroCorredor}</b></p>
 						</div>
 						<div class="text-center">
 							<a class="btn btn-primary btnContinuar" href="/proyecto-base-spring">Finalizar</a>
