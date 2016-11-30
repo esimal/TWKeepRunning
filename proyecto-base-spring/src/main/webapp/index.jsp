@@ -62,7 +62,7 @@
 	                <div class="transparencia">
 	                	<a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=1">
 							<img class="img-rounded" src="/proyecto-base-spring/img/carrera-mujer-2016.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 	                	</a>
 	                </div>
 	            </div>
@@ -70,7 +70,7 @@
 	                <div class="transparencia">
 	                	<a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=2">
 							<img class="img-rounded" src="/proyecto-base-spring/img/carrera-neon.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 	               		</a>
 	            	</div>
 	            </div>            
@@ -78,7 +78,7 @@
 	                <div class="transparencia">
 	                	<a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=3">
 							<img class="img-rounded" src="/proyecto-base-spring/img/carrera-educacion.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 	               		</a>
 	               	</div>
 	            </div>
@@ -86,7 +86,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=4">
 							<img class="img-rounded" src="/proyecto-base-spring/img/carrera21.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 		            </div>    
 	            </div>
@@ -94,7 +94,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=5">
 							<img class="img-rounded" src="/proyecto-base-spring/img/flyer-1.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 		        	</div>        
 	            </div>
@@ -102,7 +102,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=6">
 							<img class="img-rounded" src="/proyecto-base-spring/img/kitcompetencia.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 	            	</div>
 	            </div>
@@ -110,7 +110,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=7">
 							<img class="img-rounded" src="/proyecto-base-spring/img/maraton-lasrozas.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 	                </div>
 	            </div>
@@ -118,7 +118,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=8">
 							<img class="img-rounded" src="/proyecto-base-spring/img/carrera22.png"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 	                </div>
 	            </div>
@@ -126,7 +126,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=9">
 							<img class="img-rounded" src="/proyecto-base-spring/img/rioja-winerun.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 	                </div>
 	            </div>
@@ -134,7 +134,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=10">
 							<img class="img-rounded" src="/proyecto-base-spring/img/the-north-face.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 	                </div>
 	            </div>
@@ -142,7 +142,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=11">
 							<img class="img-rounded" src="/proyecto-base-spring/img/uch-10k-2016.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 	                </div>
 	            </div>
@@ -150,7 +150,7 @@
 	            	<div class="transparencia">
 		                <a class="thumbnail texto-carrera" href="proyecto-base-spring/carrera=12">
 							<img class="img-rounded" src="/proyecto-base-spring/img/vitoria.jpg"/>
-							<p class=text-center>Ver Más</p>
+							<p class=text-center>VER MÁS</p>
 		                </a>
 	                </div>
 	            </div>
