@@ -28,6 +28,14 @@ public class ObtenerDatosCarrerasImpl implements ObtenerDatosCarrera{
 		return resultado;
 	}
 
+	/*public ObtenerDatosCarrera getObtenerDatosCarrera(){
+		return obtenerDatosCarrera;
+	}
+	
+	public void setObtenerDatosCarrera(ObtenerDatosCarrera obtenerDatosCarrera){
+		this.obtenerDatosCarrera = obtenerDatosCarrera;
+	}*/
+	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}

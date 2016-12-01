@@ -31,5 +31,9 @@ public class ControladorCarreras {
 		vistaCarrera.addObject(datosCarrera);
 		vistaCarrera.setViewName("carreraElegida");
 		return vistaCarrera;
+	}
+	
+	public void setObtenerDatosCarrera(ObtenerDatosCarrera servicioMock) {	
+		this.obtenerDatosCarrera = servicioMock;
 	}	
 }
