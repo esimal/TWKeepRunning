@@ -12,7 +12,7 @@ import tallerweb.keeprunning.modelo.Usuario;
 import tallerweb.keeprunning.servicios.ValidarUsuario;
 
 public class LoginTest {
-	//
+	
 	@Test
 	public void loginConUsuarioYPassIncorrectosDeberiaVolverAlLoginNuevamente(){
 		ControladorLogin controlador = new ControladorLogin();
@@ -23,7 +23,7 @@ public class LoginTest {
 		ValidarUsuario servicioMock = mock(ValidarUsuario.class);
 		when (servicioMock.validarUsuario(anyString(), anyString())).thenReturn(null);
 		controlador.setValidarUsuario(servicioMock);
-		ModelAndView mav = controlador.login(usuario, requestMock, "0");
+		ModelAndView mav = controlador.login(usuario, requestMock, 0);
 		assertThat(mav.getModel().get("error")).isEqualTo("usuario-invalido");
 		assertThat(mav.getViewName()).isEqualTo("login");
 	}

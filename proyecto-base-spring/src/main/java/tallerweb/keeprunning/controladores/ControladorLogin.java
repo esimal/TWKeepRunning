@@ -32,15 +32,17 @@ public class ControladorLogin {
 	@Inject
 	private ValidarUsuario validar;
 	@RequestMapping(path="/login={param}", method = RequestMethod.POST)
-	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") String param) {
+	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") Integer param) {
 
 		List<Usuario> usuarioValidado = validar.validarUsuario(usuario.getEmail(), usuario.getPassword());
 		ModelMap model = new ModelMap();
 		if(usuarioValidado != null){
-			if (param.equals("0")){
+			if (param.equals(0)){
 				try{
-					request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
-					request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
+					if(request.getSession() != null) {
+						request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
+						request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
+					}
 				}catch(Exception e){
 					System.out.println("El usuario no existe en la base");
 					model.put("param", param);
@@ -50,8 +52,10 @@ public class ControladorLogin {
 				return new ModelAndView("redirect:/", model);
 			} else {
 				try{
-					request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
-					request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
+					if(request.getSession() != null) {
+						request.getSession().setAttribute("email",usuarioValidado.get(0).getEmail());
+						request.getSession().setAttribute("password",usuarioValidado.get(0).getPassword());
+					}
 				}catch(Exception e){
 					System.out.println("El usuario no existe en la base");
 					model.put("param", param);
@@ -74,5 +78,6 @@ public class ControladorLogin {
 	}
 
 	public void setValidarUsuario(ValidarUsuario servicioMock) {
+		this.validar = servicioMock;
 	}
 }
