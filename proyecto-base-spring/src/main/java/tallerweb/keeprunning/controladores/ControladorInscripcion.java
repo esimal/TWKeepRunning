@@ -40,7 +40,9 @@ public class ControladorInscripcion {
 	private RegistrarInscripcion registrarInscripcion;
 	@RequestMapping(value = "/inscripcion-fin", method = RequestMethod.GET)
 	public ModelAndView guardarInscripcion(@ModelAttribute("inscripcion") Inscripcion inscripcion, HttpServletRequest request) {
-		registrarInscripcion.grabarInscripcion(inscripcion.getCarrera(), inscripcion.getUsuario(), inscripcion.getFechaPago(), inscripcion.getNroCorredor());
+		Carrera carrera = new Carrera();
+		carrera.setCarreraId(1L);
+		registrarInscripcion.grabarInscripcion(carrera, inscripcion.getUsuario(), inscripcion.getFechaPago(), inscripcion.getNroCorredor());
 		ModelMap ins = new ModelMap();
 		Integer nroCorredor = inscripcion.getNroCorredor().nextInt(10000) + 1;
 		System.out.println(inscripcion.getCarrera());

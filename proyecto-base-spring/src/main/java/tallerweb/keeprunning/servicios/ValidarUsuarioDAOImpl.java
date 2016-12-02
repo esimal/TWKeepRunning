@@ -15,8 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import tallerweb.keeprunning.modelo.Usuario;
 import tallerweb.keeprunning.servicios.ValidarUsuarioDAO;
 
-@Service
-@ContextConfiguration(locations={"/hibernateContext.xml"})
+@Service 
 public class ValidarUsuarioDAOImpl implements ValidarUsuarioDAO{
 	
 	@Inject

@@ -20,7 +20,7 @@ public class ConsultaCarrerasTest {
 	public void pruebaQueSiLePasoUnIdDeCarreraInexistenteDaNull() {
 		ControladorCarreras controlador = new ControladorCarreras();		
 		Carrera carrera = new Carrera();
-		carrera.setCarreraId((long) 12);
+		carrera.setCarreraId((long) 5);
 		HttpServletRequest requestMock = mock(HttpServletRequest.class);
 		ObtenerDatosCarrera servicioMock = mock(ObtenerDatosCarrera.class);		
 		when (servicioMock.obtenerDatosCarreras(carrera.getCarreraId())).thenReturn(null);

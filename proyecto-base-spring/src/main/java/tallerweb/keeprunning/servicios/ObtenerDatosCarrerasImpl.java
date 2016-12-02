@@ -27,14 +27,6 @@ public class ObtenerDatosCarrerasImpl implements ObtenerDatosCarrera{
 		List<Carrera> resultado = cr.list(); 
 		return resultado;
 	}
-
-	/*public ObtenerDatosCarrera getObtenerDatosCarrera(){
-		return obtenerDatosCarrera;
-	}
-	
-	public void setObtenerDatosCarrera(ObtenerDatosCarrera obtenerDatosCarrera){
-		this.obtenerDatosCarrera = obtenerDatosCarrera;
-	}*/
 	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
