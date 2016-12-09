@@ -53,7 +53,7 @@
 	                        
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion text-center">
-							<h3>Datos de la Tarjeta</h3>
+							<h3>Datos de la Tarjeta Id carrera ${carreraId}</h3>
 						</div>
 						<div>
 							<form method="GET" class="form-horizontal" role="form">

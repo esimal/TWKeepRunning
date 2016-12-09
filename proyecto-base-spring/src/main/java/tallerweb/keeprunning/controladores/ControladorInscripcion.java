@@ -21,18 +21,24 @@ public class ControladorInscripcion {
 
 	@RequestMapping(value = "/inscripcion/{carreraId}", method = RequestMethod.GET)
 	public ModelAndView datosInscripcion(@PathVariable("carreraId") Long carreraId) {
-		Carrera carrera = new Carrera();		
+		Carrera carrera = new Carrera();
 		ModelMap datosCarrera = new ModelMap();
 		datosCarrera.put("nombre", carrera.getNombre());
+		datosCarrera.put("carreraId", carreraId);
 		ModelAndView vistaCarrera = new ModelAndView();
 		vistaCarrera.addAllObjects(datosCarrera);
 		vistaCarrera.setViewName("inscripcion");
 		return vistaCarrera;
 		}
 	
-	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
+	@RequestMapping(value = "/inscripcion-pago/", method = RequestMethod.GET)
 	public ModelAndView vistaInscripcionPago() {
-		return new ModelAndView("inscripcion-pago");
+		Carrera carrera = new Carrera();
+		ModelMap datosCarrera = new ModelMap();
+		datosCarrera.put("carreraId", carrera.getCarreraId());
+		ModelAndView vistaCarrera = new ModelAndView();
+		vistaCarrera.addAllObjects(datosCarrera);
+		return vistaCarrera;
 	}
 	
 	//modificar para que tome el id de la carrera y del usuario
