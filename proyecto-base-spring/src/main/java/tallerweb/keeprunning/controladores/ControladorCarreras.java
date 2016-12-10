@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import tallerweb.keeprunning.modelo.Carrera;
-import tallerweb.keeprunning.servicios.ObtenerDatosCarrera;;
+import tallerweb.keeprunning.servicios.CarreraServicios;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorCarreras {
 	
 	@Inject
-	private ObtenerDatosCarrera obtenerDatosCarrera;	
+	private CarreraServicios obtenerDatosCarrera;	
 	@RequestMapping(value = "/carrera={carreraId}", method = RequestMethod.GET)
 	public ModelAndView cargarDatosCarrera(@PathVariable("carreraId") long carreraId, HttpServletRequest request) {
 		List<Carrera> datosCarrera = obtenerDatosCarrera.obtenerDatosCarreras(carreraId);
@@ -40,7 +40,7 @@ public class ControladorCarreras {
 		}
 	}
 	
-	public void setObtenerDatosCarrera(ObtenerDatosCarrera servicioMock) {	
+	public void setObtenerDatosCarrera(CarreraServicios servicioMock) {	
 		this.obtenerDatosCarrera = servicioMock;
 	}	
 }

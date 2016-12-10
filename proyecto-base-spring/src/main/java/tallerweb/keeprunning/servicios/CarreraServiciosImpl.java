@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import tallerweb.keeprunning.dao.CarreraDAO;
 import tallerweb.keeprunning.modelo.Carrera;
-import tallerweb.keeprunning.servicios.ObtenerDatosCarrera;;
+import tallerweb.keeprunning.servicios.CarreraServicios;;
 
 @Service
-public class ObtenerDatosCarrerasImpl implements ObtenerDatosCarrera{
+public class CarreraServiciosImpl implements CarreraServicios{
 
 	@Autowired
 	private CarreraDAO carreraDao;

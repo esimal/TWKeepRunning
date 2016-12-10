@@ -12,7 +12,7 @@ import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Usuario;
 
 @Service
-public class RegistrarInscripcionImpl implements RegistrarInscripcion {
+public class InscripcionServiciosImpl implements InscripcionServicios {
 
 	@Autowired
 	private InscripcionDAO inscripcionDao;

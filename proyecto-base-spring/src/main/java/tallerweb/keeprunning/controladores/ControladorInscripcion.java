@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Inscripcion;
-import tallerweb.keeprunning.servicios.RegistrarInscripcion;
+import tallerweb.keeprunning.servicios.InscripcionServicios;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
@@ -38,7 +38,7 @@ public class ControladorInscripcion {
 	
 	//modificar para que tome el id de la carrera y del usuario
 	@Inject
-	private RegistrarInscripcion registrarInscripcion;
+	private InscripcionServicios registrarInscripcion;
 	@RequestMapping(value = "/inscripcion-fin", method = RequestMethod.GET)
 	public ModelAndView guardarInscripcion(@ModelAttribute("inscripcion") Inscripcion inscripcion, HttpServletRequest request) {
 		Carrera carrera = new Carrera();

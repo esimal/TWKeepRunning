@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import tallerweb.keeprunning.controladores.ControladorLogin;
 import tallerweb.keeprunning.modelo.Usuario;
-import tallerweb.keeprunning.servicios.ValidarUsuario;
+import tallerweb.keeprunning.servicios.UsuarioServicios;
 
 public class LoginTest {
 	
@@ -20,7 +20,7 @@ public class LoginTest {
 		usuario.setEmail("mailIncorrecto@gmail.com");
 		usuario.setPassword("passwordIncorrecta");
 		HttpServletRequest requestMock = mock(HttpServletRequest.class);
-		ValidarUsuario servicioMock = mock(ValidarUsuario.class);
+		UsuarioServicios servicioMock = mock(UsuarioServicios.class);
 		when (servicioMock.validarUsuario(anyString(), anyString())).thenReturn(null);
 		controlador.setValidarUsuario(servicioMock);
 		ModelAndView mav = controlador.login(usuario, requestMock, 0);

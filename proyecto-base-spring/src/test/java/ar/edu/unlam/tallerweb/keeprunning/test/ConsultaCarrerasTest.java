@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import tallerweb.keeprunning.controladores.ControladorCarreras;
 import tallerweb.keeprunning.modelo.Carrera;
 
-import tallerweb.keeprunning.servicios.ObtenerDatosCarrera;;
+import tallerweb.keeprunning.servicios.CarreraServicios;
 
 public class ConsultaCarrerasTest {
 	
@@ -22,7 +22,7 @@ public class ConsultaCarrerasTest {
 		Carrera carrera = new Carrera();
 		carrera.setCarreraId((long) 5);
 		HttpServletRequest requestMock = mock(HttpServletRequest.class);
-		ObtenerDatosCarrera servicioMock = mock(ObtenerDatosCarrera.class);		
+		CarreraServicios servicioMock = mock(CarreraServicios.class);		
 		when (servicioMock.obtenerDatosCarreras(carrera.getCarreraId())).thenReturn(null);
 		controlador.setObtenerDatosCarrera(servicioMock);
 		ModelAndView mav = controlador.cargarDatosCarrera(carrera.getCarreraId(), requestMock);

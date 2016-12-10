@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Usuario;
-import tallerweb.keeprunning.servicios.RegistrarUsuario;
+import tallerweb.keeprunning.servicios.UsuarioServicios;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
@@ -26,7 +26,7 @@ public class ControladorRegistracion {
 	}
 
 	@Inject
-	private RegistrarUsuario registarUsuario;
+	private UsuarioServicios registarUsuario;
 	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
 	public ModelAndView guardarUsuario(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		registarUsuario.grabarUsuario(usuario.getNombre(), usuario.getApellido(), usuario.getDni(), usuario.getFechaNac(), usuario.getEmail(), usuario.getPassword(), usuario.getPasswordConf());

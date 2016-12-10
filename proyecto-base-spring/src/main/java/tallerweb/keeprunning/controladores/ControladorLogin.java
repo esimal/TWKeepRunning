@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Usuario;
-import tallerweb.keeprunning.servicios.ValidarUsuario;
+import tallerweb.keeprunning.servicios.UsuarioServicios;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
@@ -30,7 +30,7 @@ public class ControladorLogin {
 	}
 	
 	@Inject
-	private ValidarUsuario validar;
+	private UsuarioServicios validar;
 	@RequestMapping(path="/login={param}", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") Integer param) {
 
@@ -77,7 +77,7 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/");
 	}
 
-	public void setValidarUsuario(ValidarUsuario servicioMock) {
+	public void setValidarUsuario(UsuarioServicios servicioMock) {
 		this.validar = servicioMock;
 	}
 }
