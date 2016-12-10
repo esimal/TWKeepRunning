@@ -31,14 +31,9 @@ public class ControladorInscripcion {
 		return vistaCarrera;
 		}
 	
-	@RequestMapping(value = "/inscripcion-pago/", method = RequestMethod.GET)
+	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
 	public ModelAndView vistaInscripcionPago() {
-		Carrera carrera = new Carrera();
-		ModelMap datosCarrera = new ModelMap();
-		datosCarrera.put("carreraId", carrera.getCarreraId());
-		ModelAndView vistaCarrera = new ModelAndView();
-		vistaCarrera.addAllObjects(datosCarrera);
-		return vistaCarrera;
+		return new ModelAndView("inscripcion-pago");
 	}
 	
 	//modificar para que tome el id de la carrera y del usuario

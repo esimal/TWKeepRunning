@@ -1,37 +1,24 @@
 package tallerweb.keeprunning.servicios;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import tallerweb.keeprunning.modelo.Usuario;
+import tallerweb.keeprunning.dao.UsuarioDAO;
 import tallerweb.keeprunning.servicios.RegistrarUsuario;;
 
 @Service
 public class RegistrarUsuarioImpl implements RegistrarUsuario {
 		
-	@Inject
+	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@Autowired
+	private UsuarioDAO usuarioDao;
+	
 	@Transactional
-	public List<Usuario> grabarUsuario(String nombre, String apellido, Long dni , String fechaNac, String email, String password, String passwordConf){
-		Usuario usuario = new Usuario();
-		usuario.setNombre(nombre);
-		usuario.setApellido(apellido);
-		usuario.setDni(dni);
-		usuario.setFechaNac(fechaNac);
-		usuario.setEmail(email);
-		usuario.setPassword(password);
-		usuario.setPasswordConf(passwordConf);
-		Session s = sessionFactory.openSession();
-		s.save(usuario);
-		List<Usuario> resultado = null;
-		return resultado;
+	public void grabarUsuario(String nombre, String apellido, Long dni , String fechaNac, String email, String password, String passwordConf){
+		usuarioDao.grabarUsuario(nombre, apellido, dni, fechaNac, email, password, passwordConf);
 	}
 
 	public SessionFactory getSessionFactory() {
