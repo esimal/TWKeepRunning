@@ -22,7 +22,6 @@ public class ControladorCarreras {
 	public ModelAndView cargarDatosCarrera(@PathVariable("carreraId") long carreraId, HttpServletRequest request) {
 		List<Carrera> datosCarrera = obtenerDatosCarrera.obtenerDatosCarreras(carreraId);
 		if(datosCarrera != null){
-			//System.out.println("datosCarrera: "+ datosCarrera.get(0).getNombre());
 			request.getSession().setAttribute("nombre",datosCarrera.get(0).getNombre());
 			request.getSession().setAttribute("lugar",datosCarrera.get(0).getLugar());
 			request.getSession().setAttribute("fecha",datosCarrera.get(0).getFechaInicio());

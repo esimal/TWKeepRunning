@@ -3,7 +3,6 @@ package tallerweb.keeprunning.servicios;
 import java.util.Date;
 import java.util.Random;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,10 +13,7 @@ import tallerweb.keeprunning.modelo.Usuario;
 
 @Service
 public class RegistrarInscripcionImpl implements RegistrarInscripcion {
-		
-	@Autowired
-	private SessionFactory sessionFactory;
-	
+
 	@Autowired
 	private InscripcionDAO inscripcionDao;
 	
@@ -26,11 +22,4 @@ public class RegistrarInscripcionImpl implements RegistrarInscripcion {
 		inscripcionDao.grabarInscripcion(carrera, usuario, fechaPago, nroCorredor);
 	}
 
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
 }

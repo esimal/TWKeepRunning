@@ -6,14 +6,14 @@ import java.util.Random;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Inscripcion;
 import tallerweb.keeprunning.modelo.Usuario;
 
-@Service
+@Repository
 public class InscripcionDAOImpl implements InscripcionDAO  {
 		
 	@Autowired

@@ -1,5 +1,9 @@
 package tallerweb.keeprunning.dao;
 
-public class CarreraDAO {
+import java.util.List;
 
+import tallerweb.keeprunning.modelo.Carrera;
+
+public interface CarreraDAO {
+	public List<Carrera> obtenerDatosCarreras(Long carreraId);
 }
