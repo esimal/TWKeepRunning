@@ -44,4 +44,13 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		List<Usuario> resultado = cr.list();
 		return resultado;
 	}
+	
+	@Transactional
+	@SuppressWarnings("unchecked")
+	public List<Usuario> obtenerUsuarios(){
+		Criteria cr = sessionFactory.openSession().createCriteria(Usuario.class);
+		cr.add(Restrictions.isNotNull("usuarioId"));
+		List<Usuario> resultado = cr.list(); 
+		return resultado;
+	}
 }	

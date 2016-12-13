@@ -24,4 +24,9 @@ public class UsuarioServiciosImpl implements UsuarioServicios{
 	public void grabarUsuario(String nombre, String apellido, Long dni , String fechaNac, String email, String password, String passwordConf){
 		usuarioDao.grabarUsuario(nombre, apellido, dni, fechaNac, email, password, passwordConf);
 	}
+	
+	@Transactional
+	public List<Usuario> obtenerUsuarios(){
+		return usuarioDao.obtenerUsuarios();
+	}
 }

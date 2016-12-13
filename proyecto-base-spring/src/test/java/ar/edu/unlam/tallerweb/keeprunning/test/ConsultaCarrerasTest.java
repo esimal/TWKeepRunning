@@ -1,31 +1,36 @@
 package ar.edu.unlam.tallerweb.keeprunning.test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.assertj.core.api.Assertions.*;
-import javax.servlet.http.HttpServletRequest;
 import org.junit.Test;
+
+import org.junit.Assert;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.ModelAndView;
 
-import tallerweb.keeprunning.controladores.ControladorCarreras;
+import tallerweb.keeprunning.dao.CarreraDAO;
 import tallerweb.keeprunning.modelo.Carrera;
+import tallerweb.keeprunning.servicios.UsuarioServicios;
 
-import tallerweb.keeprunning.servicios.CarreraServicios;
+public class ConsultaCarrerasTest extends SpringTest{
 
-public class ConsultaCarrerasTest {
-	
+	@Autowired
+	private CarreraDAO carreraDaoMock;
+
 	@Test
-	@Transactional	
-	public void pruebaQueSiLePasoUnIdDeCarreraInexistenteDaNull() {
-		ControladorCarreras controlador = new ControladorCarreras();		
-		Carrera carrera = new Carrera();
-		carrera.setCarreraId((long) 5);
-		HttpServletRequest requestMock = mock(HttpServletRequest.class);
-		CarreraServicios servicioMock = mock(CarreraServicios.class);		
-		when (servicioMock.obtenerDatosCarreras(carrera.getCarreraId())).thenReturn(null);
-		controlador.setObtenerDatosCarrera(servicioMock);
-		ModelAndView mav = controlador.cargarDatosCarrera(carrera.getCarreraId(), requestMock);
-		assertThat(mav.getViewName()).isEqualTo("carreraElegida");
+	@Transactional
+	//Se prueba viendo que la cantidad de registros en la tabla Usuario sea la correcta luego de registrar el nuevo usuario
+	public void probarQueTraigaDatosDeCarreraCorrectamente(){
+		carreraDaoMock = mock(CarreraDAO.class);
+		List<Carrera> carreras = carreraDaoMock.obtenerDatosCarreras(8L);
+		when(carreraDaoMock.obtenerDatosCarreras(anyLong())).thenReturn(carreras);
+		Assert.assertEquals(12, carreras.size());
+		//Assert.assertEquals("Carrera 21K Runderful", carreras.get(1).getNombre());
+		//assertThat(carrera.getNombre());
 	}
 }
