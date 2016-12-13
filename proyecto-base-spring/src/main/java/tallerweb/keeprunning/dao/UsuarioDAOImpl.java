@@ -21,15 +21,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
  	private SessionFactory sessionFactory;	
 
 	@Transactional
-	public void grabarUsuario(String nombre, String apellido, Long dni , String fechaNac, String email, String password, String passwordConf){	
-		Usuario usuario = new Usuario();
-		usuario.setNombre(nombre);
-		usuario.setApellido(apellido);
-		usuario.setDni(dni);
-		usuario.setFechaNac(fechaNac);
-		usuario.setEmail(email);
-		usuario.setPassword(password);
-		usuario.setPasswordConf(passwordConf);
+	public void grabarUsuario(Usuario usuario){	
 		Session s = sessionFactory.openSession();
 		s.save(usuario);		
 	}

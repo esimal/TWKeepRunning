@@ -21,12 +21,16 @@ public class UsuarioServiciosImpl implements UsuarioServicios{
 	}
 	
 	@Transactional
-	public void grabarUsuario(String nombre, String apellido, Long dni , String fechaNac, String email, String password, String passwordConf){
-		usuarioDao.grabarUsuario(nombre, apellido, dni, fechaNac, email, password, passwordConf);
+	public void grabarUsuario(Usuario usuario){
+		usuarioDao.grabarUsuario(usuario);
 	}
 	
 	@Transactional
 	public List<Usuario> obtenerUsuarios(){
 		return usuarioDao.obtenerUsuarios();
+	}
+
+	public void setUsuarioDAO(UsuarioDAO usuarioDao) {
+		this.usuarioDao = usuarioDao;	
 	}
 }

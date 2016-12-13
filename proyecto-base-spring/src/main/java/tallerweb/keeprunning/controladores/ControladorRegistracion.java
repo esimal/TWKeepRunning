@@ -27,9 +27,10 @@ public class ControladorRegistracion {
 
 	@Inject
 	private UsuarioServicios registarUsuario;
+	
 	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
 	public ModelAndView guardarUsuario(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
-		registarUsuario.grabarUsuario(usuario.getNombre(), usuario.getApellido(), usuario.getDni(), usuario.getFechaNac(), usuario.getEmail(), usuario.getPassword(), usuario.getPasswordConf());
+		registarUsuario.grabarUsuario(usuario);
 		ModelAndView registracion = new ModelAndView();
 		registracion.addObject("nombre", usuario.getNombre());
 		registracion.addObject("apellido", usuario.getApellido());

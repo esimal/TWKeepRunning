@@ -2,7 +2,6 @@ package tallerweb.keeprunning.modelo;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,11 +31,12 @@ public class Usuario implements java.io.Serializable{
 	private Set<Inscripcion> inscripcion = new HashSet<Inscripcion>(0);
 	private Set<UsuarioCarrera> usuarioCarrera = new HashSet<UsuarioCarrera>(0);
 	
-	public Usuario(String nombre, String apellido, Long dni, String email, String password, String passwordConf, Date fechaNac, Set<Inscripcion> inscripcion, Set<UsuarioCarrera> usuarioCarrera){
+	public Usuario(String nombre, String apellido, Long dni, String email, String password, String passwordConf, String fechaNac, Set<Inscripcion> inscripcion, Set<UsuarioCarrera> usuarioCarrera){
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.email = email;
+		this.fechaNac = fechaNac;
 		this.password = password;
 		this.passwordConf = passwordConf;
 		this.inscripcion = inscripcion;
@@ -46,6 +46,16 @@ public class Usuario implements java.io.Serializable{
 	public Usuario() {
 	}
 	
+	public Usuario(String nombre, String apellido, Long dni, String email, String password, String passwordConf, String fechaNac){
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.email = email;
+		this.fechaNac = fechaNac;
+		this.password = password;
+		this.passwordConf = passwordConf;
+	}
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "usuarioId", unique=true, nullable=false)

@@ -19,14 +19,14 @@ import tallerweb.keeprunning.servicios.UsuarioServicios;
 
 public class ConsultaCarrerasTest extends SpringTest{
 
-	@Autowired
-	private CarreraDAO carreraDaoMock;
+	//@Autowired
+	//private CarreraDAO carreraDaoMock;
 
 	@Test
 	@Transactional
 	//Se prueba viendo que la cantidad de registros en la tabla Usuario sea la correcta luego de registrar el nuevo usuario
 	public void probarQueTraigaDatosDeCarreraCorrectamente(){
-		carreraDaoMock = mock(CarreraDAO.class);
+		CarreraDAO carreraDaoMock = mock(CarreraDAO.class);
 		List<Carrera> carreras = carreraDaoMock.obtenerDatosCarreras(8L);
 		when(carreraDaoMock.obtenerDatosCarreras(anyLong())).thenReturn(carreras);
 		Assert.assertEquals(12, carreras.size());

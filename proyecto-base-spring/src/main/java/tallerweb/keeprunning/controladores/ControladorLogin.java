@@ -31,6 +31,7 @@ public class ControladorLogin {
 	
 	@Inject
 	private UsuarioServicios validar;
+	
 	@RequestMapping(path="/login={param}", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") Integer param) {
 
@@ -48,7 +49,7 @@ public class ControladorLogin {
 					model.put("param", param);
 					return new ModelAndView("ingresoIncorrecto");
 				}
-				System.out.println("Usuario existente");		
+				System.out.println("Usuario existente");
 				return new ModelAndView("redirect:/", model);
 			} else {
 				try{
@@ -67,17 +68,19 @@ public class ControladorLogin {
 		} else {
 			System.out.println("El usuario no existe en la base");
 			model.put("error", "usuario-invalido");
-			return new ModelAndView("login", model);
+			return new ModelAndView("ingresoIncorrecto", model);
 		}
 	}
 	
 	@RequestMapping(value = "/0", method = RequestMethod.GET)
 	public ModelAndView vistaLogout (HttpServletRequest request) {
-		request.getSession().invalidate();
+		if(request.getSession() != null) {
+			request.getSession().invalidate();
+		}
 		return new ModelAndView("redirect:/");
 	}
 
-	public void setValidarUsuario(UsuarioServicios servicioMock) {
-		this.validar = servicioMock;
+	public void setValidarUsuario(UsuarioServicios validar) {
+		this.validar = validar;
 	}
 }
