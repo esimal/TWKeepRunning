@@ -52,7 +52,7 @@
 				  	<c:otherwise>
 						<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 						<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/registracion"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>				  	
-						<li><a class="btn btn-menu" href="./login=0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>
@@ -143,16 +143,14 @@
 						</ul>
 					</div>
 					<div class="text-center">
-				<c:choose>
-					<c:when test="${email == null}">					
-						<a href="./login=${email}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
-					</c:when>
-					<c:otherwise>
-						<a href="./inscripcion/${carreraId}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
-					</c:otherwise>
-				</c:choose>	
-						<!-- <a href="./inscripcion/${id}"><button type="button" class="btn btn-success btnInscripcion" id="btnInscripcion" data-toggle="modal">Si ya 
-						está logueado iría a donde va este botón ;)</button></a>-->
+						<c:choose>
+							<c:when test="${email == null}">					
+								<a href="./login"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
+							</c:when>
+							<c:otherwise>
+								<a href="./inscripcion/${carreraId}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
+							</c:otherwise>
+						</c:choose>	
 					</div>
 				</div>
 			</div>

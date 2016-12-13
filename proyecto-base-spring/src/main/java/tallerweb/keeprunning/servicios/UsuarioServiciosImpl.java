@@ -16,8 +16,17 @@ public class UsuarioServiciosImpl implements UsuarioServicios{
 	@Autowired
 	private UsuarioDAO usuarioDao;
 	
-	public List<Usuario> validarUsuario(String email, String password){
-		return usuarioDao.validarUsuario(email, password);
+	public Usuario validarUsuario(String email, String password){
+		//return usuarioDao.validarUsuario(email, password);
+		List <Usuario> usuarios = usuarioDao.obtenerUsuarios();
+		for(int i=0;i<usuarios.size();i++){
+			if(email.equals(usuarios.get(i).getEmail()) && password.equals(usuarios.get(i).getPassword())){
+				Usuario usuario = usuarios.get(i);
+				return usuario;
+			}
+		}
+		Usuario usuario=null;
+		return usuario;
 	}
 	
 	@Transactional
@@ -31,6 +40,6 @@ public class UsuarioServiciosImpl implements UsuarioServicios{
 	}
 
 	public void setUsuarioDAO(UsuarioDAO usuarioDao) {
-		this.usuarioDao = usuarioDao;	
+		this.usuarioDao = usuarioDao;
 	}
 }

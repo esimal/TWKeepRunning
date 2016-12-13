@@ -21,7 +21,7 @@ import tallerweb.keeprunning.servicios.UsuarioServicios;
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorLogin {
 
-	@RequestMapping(value = "/login={param}", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView vistaLogin (Model modelo) {
 		ModelAndView login = new ModelAndView();
 		modelo.addAttribute("classLogin", new Usuario());
@@ -31,7 +31,7 @@ public class ControladorLogin {
 	
 	@Inject
 	private UsuarioServicios validar;
-	
+	/*
 	@RequestMapping(path="/login={param}", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") Integer param) {
 
@@ -66,6 +66,24 @@ public class ControladorLogin {
 				return new ModelAndView("inscripcion", model);			
 			}
 		} else {
+			System.out.println("El usuario no existe en la base");
+			model.put("error", "usuario-invalido");
+			return new ModelAndView("ingresoIncorrecto", model);
+		}
+	}*/
+	
+	@RequestMapping(path="/login", method = RequestMethod.POST)
+	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
+
+		Usuario usuarioValidado = validar.validarUsuario(usuario.getEmail(), usuario.getPassword());
+		
+		ModelMap model = new ModelMap();
+		if(usuarioValidado != null){
+			request.getSession().setAttribute("email",usuarioValidado.getEmail());
+			request.getSession().setAttribute("password",usuarioValidado.getPassword());
+			model.put("UsuarioLogueado", usuarioValidado);
+			return new ModelAndView("redirect:/",model);
+		}else {
 			System.out.println("El usuario no existe en la base");
 			model.put("error", "usuario-invalido");
 			return new ModelAndView("ingresoIncorrecto", model);

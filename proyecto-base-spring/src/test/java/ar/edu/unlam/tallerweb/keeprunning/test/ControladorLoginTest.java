@@ -15,7 +15,7 @@ public class ControladorLoginTest {
 	
 	@Test
 	//por el camino que sigue en el controlador parecería que da null para la condicion if(usuarioValidado != null)
-	public void loguearseConUsuarioYPassIncorrectosDeberiaIrALaVistaIngresoIncorrecto(){
+	public void loguearseConUsuarioYPassIncorrectosDeberiaIrALaVistaIngresoIncorrecto() {
 		ControladorLogin controlador = new ControladorLogin();
 		Usuario usuario = new Usuario();
 		usuario.setEmail("mailIncorrecto@gmail.com");
@@ -24,7 +24,7 @@ public class ControladorLoginTest {
 		UsuarioServicios servicioMock = mock(UsuarioServicios.class);
 		when (servicioMock.validarUsuario(anyString(), anyString())).thenReturn(null);
 		controlador.setValidarUsuario(servicioMock);
-		ModelAndView mav = controlador.login(usuario, requestMock, 0);
+		ModelAndView mav = controlador.login(usuario, requestMock);
 		assertThat(mav.getModel().get("error")).isEqualTo("usuario-invalido");
 		assertThat(mav.getViewName()).isEqualTo("ingresoIncorrecto");
 	}
@@ -39,7 +39,7 @@ public class ControladorLoginTest {
 		UsuarioServicios servicioMock = mock(UsuarioServicios.class);
 		when (servicioMock.validarUsuario(anyString(), anyString())).thenReturn(null);
 		controlador.setValidarUsuario(servicioMock);
-		ModelAndView mav = controlador.login(usuario, requestMock, 0);
+		ModelAndView mav = controlador.login(usuario, requestMock);
 		assertThat(mav.getModel().get("correcto")).isEqualTo("usuario-valido");
 		assertThat(mav.getViewName()).isEqualTo("login");
 	}

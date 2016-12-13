@@ -2,12 +2,8 @@ package tallerweb.keeprunning.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.LogicalExpression;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,23 +22,31 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		s.save(usuario);		
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Usuario> validarUsuario(String email, String password){
-		Criteria cr = sessionFactory.openSession().createCriteria(Usuario.class);
+	/*public Usuario validarUsuario(String email, String password){
+		List <Usuario> usuarios = usuarioDAO.obtenerUsuarios();
+		for(int i=0;i<usuarios.size();i++){
+			if(email.equals(usuarios.get(i).getEmail()) && password.equals(usuarios.get(i).getPassword())){
+				Usuario usuario = usuarios.get(i);
+				return usuario;
+			}
+		}
+		Usuario usuario=null;
+		return usuario;
+	}*/
+		/*Criteria cr = sessionFactory.openSession().createCriteria(Usuario.class);
 		Criterion mail = Restrictions.eq("email", email);
 		Criterion pass = Restrictions.eq("password", password);
 		LogicalExpression validar = Restrictions.and(mail, pass);
 		cr.add(validar);
-		List<Usuario> resultado = cr.list();
-		return resultado;
-	}
+		Usuario resultado = cr.();
+		return resultado;*/
 	
 	@Transactional
 	@SuppressWarnings("unchecked")
 	public List<Usuario> obtenerUsuarios(){
-		Criteria cr = sessionFactory.openSession().createCriteria(Usuario.class);
-		cr.add(Restrictions.isNotNull("usuarioId"));
-		List<Usuario> resultado = cr.list(); 
-		return resultado;
+		List <Usuario> usuarios = sessionFactory.openSession().createCriteria(Usuario.class).list();
+		//cr.add(Restrictions.isNotNull("usuarioId"));
+		//List<Usuario> resultado = cr.list(); 
+		return usuarios;
 	}
 }	
