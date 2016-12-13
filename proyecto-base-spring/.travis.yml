@@ -1,2 +1,4 @@
 languaje: java
-mvn: test
+notifications:
+  email:
+    - gonzalociancio@gmail.com
