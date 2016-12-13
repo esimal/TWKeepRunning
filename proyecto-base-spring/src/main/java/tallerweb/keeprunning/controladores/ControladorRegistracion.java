@@ -1,7 +1,6 @@
 package tallerweb.keeprunning.controladores;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +28,7 @@ public class ControladorRegistracion {
 	private UsuarioServicios registarUsuario;
 	
 	@RequestMapping(value="/registracion",  method = RequestMethod.POST)
-	public ModelAndView guardarUsuario(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
+	public ModelAndView guardarUsuario(@ModelAttribute("usuario") Usuario usuario) {
 		registarUsuario.grabarUsuario(usuario);
 		ModelAndView registracion = new ModelAndView();
 		registracion.addObject("nombre", usuario.getNombre());
@@ -40,5 +39,9 @@ public class ControladorRegistracion {
 		registracion.addObject("password", usuario.getPassword());
 		registracion.setViewName("registracionOk");
         return registracion;
+	}
+
+	public void setRegistrarUsuario(UsuarioServicios registrarUsuario) {
+		this.registarUsuario = registrarUsuario;
 	}
 }

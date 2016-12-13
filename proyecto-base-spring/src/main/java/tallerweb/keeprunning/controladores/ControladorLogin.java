@@ -35,7 +35,7 @@ public class ControladorLogin {
 	@RequestMapping(path="/login={param}", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request, @PathVariable("param") Integer param) {
 
-		List<Usuario> usuarioValidado = validar.validarUsuario(usuario.getEmail(), usuario.getPassword());
+		List<Usuario> usuarioValidado = validar.buscarUsuario(usuario.getEmail(), usuario.getPassword());
 		ModelMap model = new ModelMap();
 		if(usuarioValidado != null){
 			if (param.equals(0)){
@@ -75,7 +75,7 @@ public class ControladorLogin {
 	@RequestMapping(path="/login", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 
-		Usuario usuarioValidado = validar.validarUsuario(usuario.getEmail(), usuario.getPassword());
+		Usuario usuarioValidado = validar.buscarUsuario(usuario.getEmail(), usuario.getPassword());
 		
 		ModelMap model = new ModelMap();
 		if(usuarioValidado != null){

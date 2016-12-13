@@ -22,31 +22,10 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		s.save(usuario);		
 	}
 	
-	/*public Usuario validarUsuario(String email, String password){
-		List <Usuario> usuarios = usuarioDAO.obtenerUsuarios();
-		for(int i=0;i<usuarios.size();i++){
-			if(email.equals(usuarios.get(i).getEmail()) && password.equals(usuarios.get(i).getPassword())){
-				Usuario usuario = usuarios.get(i);
-				return usuario;
-			}
-		}
-		Usuario usuario=null;
-		return usuario;
-	}*/
-		/*Criteria cr = sessionFactory.openSession().createCriteria(Usuario.class);
-		Criterion mail = Restrictions.eq("email", email);
-		Criterion pass = Restrictions.eq("password", password);
-		LogicalExpression validar = Restrictions.and(mail, pass);
-		cr.add(validar);
-		Usuario resultado = cr.();
-		return resultado;*/
-	
 	@Transactional
 	@SuppressWarnings("unchecked")
 	public List<Usuario> obtenerUsuarios(){
 		List <Usuario> usuarios = sessionFactory.openSession().createCriteria(Usuario.class).list();
-		//cr.add(Restrictions.isNotNull("usuarioId"));
-		//List<Usuario> resultado = cr.list(); 
 		return usuarios;
 	}
 }	

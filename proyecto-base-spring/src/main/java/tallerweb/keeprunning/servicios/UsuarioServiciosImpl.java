@@ -16,8 +16,7 @@ public class UsuarioServiciosImpl implements UsuarioServicios{
 	@Autowired
 	private UsuarioDAO usuarioDao;
 	
-	public Usuario validarUsuario(String email, String password){
-		//return usuarioDao.validarUsuario(email, password);
+	public Usuario buscarUsuario(String email, String password){
 		List <Usuario> usuarios = usuarioDao.obtenerUsuarios();
 		for(int i=0;i<usuarios.size();i++){
 			if(email.equals(usuarios.get(i).getEmail()) && password.equals(usuarios.get(i).getPassword())){
