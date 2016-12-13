@@ -16,9 +16,9 @@ public class ControladorRegistracionTest {
 	public void testQuePruebaQueLuegoDeRegistrarUnUsuarioVaALaVistaRegistracionOk(){
 		ControladorRegistracion controladorRegistracion = new ControladorRegistracion();
 		Usuario usuario = new Usuario("TestNombre", "TestApellido", 12345679L, "test@gmail.com", "123", "123", "22/07/1992");
-		UsuarioServicios serviceMock = mock(UsuarioServicios.class);
-		serviceMock.grabarUsuario(usuario);
-		controladorRegistracion.setRegistrarUsuario(serviceMock);
+		UsuarioServicios servicioMock = mock(UsuarioServicios.class);
+		servicioMock.grabarUsuario(usuario);
+		controladorRegistracion.setRegistrarUsuario(servicioMock);
 		ModelAndView mav = controladorRegistracion.guardarUsuario(usuario);
 		assertThat(mav.getViewName()).isEqualTo("registracionOk");
 	}

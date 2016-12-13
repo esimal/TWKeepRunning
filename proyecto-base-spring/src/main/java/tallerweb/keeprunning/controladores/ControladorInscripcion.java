@@ -1,7 +1,6 @@
 package tallerweb.keeprunning.controladores;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,10 +39,9 @@ public class ControladorInscripcion {
 	@Inject
 	private InscripcionServicios registrarInscripcion;
 	@RequestMapping(value = "/inscripcion-fin", method = RequestMethod.GET)
-	public ModelAndView guardarInscripcion(@ModelAttribute("inscripcion") Inscripcion inscripcion, HttpServletRequest request) {
-		Carrera carrera = new Carrera();
-		carrera.setCarreraId(1L);
-		registrarInscripcion.grabarInscripcion(carrera, inscripcion.getUsuario(), inscripcion.getFechaPago(), inscripcion.getNroCorredor());
+	public ModelAndView guardarInscripcion(@ModelAttribute("inscripcion") Inscripcion inscripcion) {
+		//carrera.setCarreraId(1L);
+		registrarInscripcion.grabarInscripcion(inscripcion);
 		ModelMap ins = new ModelMap();
 		Integer nroCorredor = inscripcion.getNroCorredor().nextInt(10000) + 1;
 		System.out.println(inscripcion.getCarrera());
@@ -52,5 +50,9 @@ public class ControladorInscripcion {
    		ins.addAttribute("nroCorredor", nroCorredor);
    		System.out.println(nroCorredor);
 		return new ModelAndView("inscripcion-fin", ins);
+	}
+
+	public void setRegistrarInscripcion(InscripcionServicios registrarInscripcion) {
+		this.registrarInscripcion = registrarInscripcion;
 	}
 }

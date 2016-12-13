@@ -18,4 +18,8 @@ public class CarreraServiciosImpl implements CarreraServicios{
 	public List<Carrera> obtenerDatosCarreras(Long carreraId){
 		return carreraDao.obtenerDatosCarreras(carreraId);
 	}
+
+	public void setCarreraDao(CarreraDAO carreraDAO) {
+		this.carreraDao = carreraDAO;
+	}
 }

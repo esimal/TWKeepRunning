@@ -41,6 +41,16 @@ public class Carrera implements java.io.Serializable{
 		this.usuarioCarrera = usuarioCarrera;
 	}
 	
+	public Carrera(String nombre, String lugar, String fechaInicio, String horaInicio, String imagenFlyer, String imagenRecorrido, Integer valor){
+		this.nombre = nombre;
+		this.lugar = lugar;
+		this.fechaInicio = fechaInicio;
+		this.horaInicio = horaInicio;
+		this.imagenFlyer = imagenFlyer;
+		this.imagenRecorrido = imagenRecorrido;
+		this.valor = valor;
+	}
+	
 	public Carrera() {
 	}
 	
@@ -52,7 +62,10 @@ public class Carrera implements java.io.Serializable{
 		this.carreraId = carreraId;
 		this.nombre = nombre;
 	}
-	
+
+	public Carrera(Long carreraId) {
+		this.carreraId = carreraId;
+	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)

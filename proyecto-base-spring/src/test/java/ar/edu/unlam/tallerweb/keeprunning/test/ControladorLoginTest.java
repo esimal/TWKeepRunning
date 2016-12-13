@@ -14,16 +14,16 @@ import tallerweb.keeprunning.servicios.UsuarioServicios;
 public class ControladorLoginTest {
 	
 	@Test
-	public void loguearseConUsuarioYPassIncorrectosDeberiaIrALaVistaIngresoIncorrecto() {
-		ControladorLogin controlador = new ControladorLogin();
+	public void testQuePruebaLoguearseConUsuarioYPassIncorrectosDeberiaIrALaVistaIngresoIncorrecto() {
+		ControladorLogin controladorLogin = new ControladorLogin();
 		Usuario usuario = new Usuario();
 		usuario.setEmail("mailIncorrecto@gmail.com");
 		usuario.setPassword("passwordIncorrecta");
 		HttpServletRequest requestMock = mock(HttpServletRequest.class);
 		UsuarioServicios servicioMock = mock(UsuarioServicios.class);
 		when (servicioMock.buscarUsuario(anyString(), anyString())).thenReturn(null);
-		controlador.setValidarUsuario(servicioMock);
-		ModelAndView mav = controlador.login(usuario, requestMock);
+		controladorLogin.setValidarUsuario(servicioMock);
+		ModelAndView mav = controladorLogin.login(usuario, requestMock);
 		assertThat(mav.getModel().get("error")).isEqualTo("usuario-invalido");
 		assertThat(mav.getViewName()).isEqualTo("ingresoIncorrecto");
 	}
