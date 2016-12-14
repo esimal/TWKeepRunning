@@ -24,11 +24,11 @@ public class ControladorInscripcionTest {
 		Usuario usuario = new Usuario();
 		Date fechaPago = new Date();
 		Random nroCorredor = new Random();
-		Inscripcion inscripcion = new Inscripcion(carrera, usuario, fechaPago, nroCorredor);
+		Inscripcion inscripcion = new Inscripcion();
 		InscripcionServicios servicioMock = mock(InscripcionServicios.class);
-		servicioMock.grabarInscripcion(inscripcion);
+		servicioMock.grabarInscripcion(carrera, usuario, fechaPago, nroCorredor);
 		controladorInscripcion.setRegistrarInscripcion(servicioMock);
-		ModelAndView mav = controladorInscripcion.guardarInscripcion(inscripcion);
+		ModelAndView mav = controladorInscripcion.guardarInscripcion(carrera, usuario, fechaPago, nroCorredor);
 		assertThat(mav.getViewName()).isEqualTo("inscripcion-fin");
 	}
 }

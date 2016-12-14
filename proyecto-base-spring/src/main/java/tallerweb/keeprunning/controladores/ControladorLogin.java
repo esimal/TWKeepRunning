@@ -79,7 +79,7 @@ public class ControladorLogin {
 			request.getSession().setAttribute("email",usuarioValidado.getEmail());
 			request.getSession().setAttribute("password",usuarioValidado.getPassword());
 			request.getSession().setAttribute("usuarioId",usuarioValidado.getUsuarioId());
-			//model.put("UsuarioLogueado", usuarioValidado);
+			model.put("UsuarioLogueado", usuarioValidado);
 			return new ModelAndView("redirect:/",model);
 		}else {
 			System.out.println("El usuario no existe en la base");

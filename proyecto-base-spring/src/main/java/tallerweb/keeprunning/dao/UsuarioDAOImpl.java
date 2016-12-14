@@ -31,11 +31,11 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	}
 	
 	@Transactional
-	public Long obtenerUsuarioIdPorEmail(String email){
-		Long usuarioId = (Long)sessionFactory.getCurrentSession()
+	public Usuario obtenerUsuarioPorId(Long usuarioId){
+		Usuario usuario = (Usuario)sessionFactory.getCurrentSession()
 				.createCriteria(Usuario.class)
-				.add(Restrictions.eq("email", email))
+				.add(Restrictions.eq("usuarioId", usuarioId))
 				.uniqueResult();
-		return usuarioId;
+		return usuario;
 	}
 }	

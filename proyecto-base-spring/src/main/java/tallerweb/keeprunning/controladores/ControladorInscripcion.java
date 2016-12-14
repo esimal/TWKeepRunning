@@ -1,6 +1,7 @@
 package tallerweb.keeprunning.controladores;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,6 +15,7 @@ import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Inscripcion;
 import tallerweb.keeprunning.modelo.Usuario;
 import tallerweb.keeprunning.servicios.InscripcionServicios;
+import tallerweb.keeprunning.servicios.UsuarioServicios;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
@@ -48,21 +50,24 @@ public class ControladorInscripcion {
 	//modificar para que tome el id de la carrera y del usuario
 	@Inject
 	private InscripcionServicios registrarInscripcion;
+	@Inject
+	private UsuarioServicios obtenerUsuario;
 	
 	@RequestMapping(value = "/inscripcion-fin/{carreraId}", method = RequestMethod.GET)
-	public ModelAndView guardarInscripcion(@PathVariable("carreraId") Long carreraId, @ModelAttribute("inscripcion") Inscripcion inscripcion) {
+	public ModelAndView guardarInscripcion(@PathVariable("carreraId") Long carreraId, @ModelAttribute("inscripcion") Inscripcion inscripcion, HttpServletRequest request) {
 		Carrera carrera = new Carrera();
 		carrera.setCarreraId(carreraId);
 		ModelMap ins = new ModelMap();
 		Integer nroCorredor = inscripcion.getNroCorredor().nextInt(10000) + 1;
-   		ins.put("nroCorredor", nroCorredor);
-   		//ins.put("carreraId", carreraId);
-   		registrarInscripcion.grabarInscripcion(carrera, inscripcion.getUsuario(), inscripcion.getFechaPago(), inscripcion.getNroCorredor());
-   		System.out.println(carreraId);
-		System.out.println(inscripcion.getUsuario());
+   		ins.put("nroCorredor", nroCorredor);		
+		long usuarioId = (long) request.getSession().getAttribute("usuarioId");
+		Usuario usuario = obtenerUsuario.obtenerUsuarioPorId(usuarioId);
+		System.out.println(carreraId);
+		System.out.println(usuarioId);
    		System.out.println(inscripcion.getFechaPago());
    		System.out.println(nroCorredor);
-   		ModelAndView vistaCarrera = new ModelAndView();
+		registrarInscripcion.grabarInscripcion(carrera, usuario, inscripcion.getFechaPago(), inscripcion.getNroCorredor());
+		ModelAndView vistaCarrera = new ModelAndView();
 		vistaCarrera.addAllObjects(ins);
 		return new ModelAndView("inscripcion-fin", ins);
 	}

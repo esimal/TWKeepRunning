@@ -10,5 +10,5 @@ public interface UsuarioDAO {
 	
 	public List<Usuario> obtenerUsuarios();
 	
-	public Long obtenerUsuarioIdPorEmail(String email);
+	public Usuario obtenerUsuarioPorId(Long usuarioId);
 }
