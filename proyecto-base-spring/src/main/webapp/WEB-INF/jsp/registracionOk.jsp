@@ -38,7 +38,7 @@
 		   			<h1 class="page-header text-center titulo">KEEP RUNNING</h1>
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-login">
 						<div>REGISTRACIÓN EXITOSA!!!</div>
-						<div>Ahora podes ingresar haciendo click <a href="/proyecto-base-spring/proyecto-base-spring/login=0">acá</a></div>
+						<div>Ahora podes ingresar haciendo click <a href="/proyecto-base-spring/proyecto-base-spring/login">acá</a></div>
 					</div>
 				</div>
 			</div>

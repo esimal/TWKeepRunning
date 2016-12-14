@@ -51,6 +51,17 @@ public class Carrera implements java.io.Serializable{
 		this.valor = valor;
 	}
 	
+	public Carrera(Long carreraId, String nombre, String lugar, String fechaInicio, String horaInicio, String imagenFlyer, String imagenRecorrido, Integer valor){
+		this.carreraId = carreraId;
+		this.nombre = nombre;
+		this.lugar = lugar;
+		this.fechaInicio = fechaInicio;
+		this.horaInicio = horaInicio;
+		this.imagenFlyer = imagenFlyer;
+		this.imagenRecorrido = imagenRecorrido;
+		this.valor = valor;
+	}
+	
 	public Carrera() {
 	}
 	

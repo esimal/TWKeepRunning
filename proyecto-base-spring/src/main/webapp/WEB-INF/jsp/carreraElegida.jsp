@@ -148,7 +148,7 @@
 								<a href="./login"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
 							</c:when>
 							<c:otherwise>
-								<a href="./inscripcion/${carreraId}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
+								<a href="./inscripcion/${carreraId}/${usuarioId}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
 							</c:otherwise>
 						</c:choose>	
 					</div>

@@ -1,8 +1,5 @@
 package tallerweb.keeprunning.dao;
 
-import java.util.List;
-
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +15,15 @@ public class CarreraDAOImpl implements CarreraDAO{
  	private SessionFactory sessionFactory;
 	
 	@Transactional
-	@SuppressWarnings("unchecked")
-	public List<Carrera> obtenerDatosCarreras(Long carreraId){
-		Criteria cr = sessionFactory.openSession().createCriteria(Carrera.class);
+	public Carrera obtenerDatosCarreras(Long carreraId){
+		Carrera carrera = (Carrera)sessionFactory.getCurrentSession()
+							.createCriteria(Carrera.class)
+							.add(Restrictions.eq("carreraId", carreraId))
+							.uniqueResult();
+		return carrera;
+		/*Criteria cr = sessionFactory.openSession().createCriteria(Carrera.class);
 		cr.add(Restrictions.eq("carreraId", carreraId));
 		List<Carrera> resultado = cr.list(); 
-		return resultado;
+		return resultado;*/
 	}
 }

@@ -11,4 +11,6 @@ public interface UsuarioServicios {
 	public void grabarUsuario(Usuario usuario);
 	
 	public List<Usuario> obtenerUsuarios();
+	
+	public Long obtenerUsuarioIdPorEmail(String email);
 }

@@ -1,6 +1,5 @@
 package tallerweb.keeprunning.controladores;
 
-import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -20,15 +19,15 @@ public class ControladorCarreras {
 	private CarreraServicios obtenerDatosCarrera;	
 	@RequestMapping(value = "/carrera={carreraId}", method = RequestMethod.GET)
 	public ModelAndView cargarDatosCarrera(@PathVariable("carreraId") long carreraId, HttpServletRequest request) {
-		List<Carrera> datosCarrera = obtenerDatosCarrera.obtenerDatosCarreras(carreraId);
+		Carrera datosCarrera = obtenerDatosCarrera.obtenerDatosCarreras(carreraId);
 		if(datosCarrera != null){
-			request.getSession().setAttribute("nombre",datosCarrera.get(0).getNombre());
-			request.getSession().setAttribute("lugar",datosCarrera.get(0).getLugar());
-			request.getSession().setAttribute("fecha",datosCarrera.get(0).getFechaInicio());
-			request.getSession().setAttribute("hora",datosCarrera.get(0).getHoraInicio());
-			request.getSession().setAttribute("imagenFlyer",datosCarrera.get(0).getImagenFlyer());
-			request.getSession().setAttribute("imagenRecorrido",datosCarrera.get(0).getImagenRecorrido());
-			request.getSession().setAttribute("valor",datosCarrera.get(0).getValor());			
+			request.getSession().setAttribute("nombre",datosCarrera.getNombre());
+			request.getSession().setAttribute("lugar",datosCarrera.getLugar());
+			request.getSession().setAttribute("fecha",datosCarrera.getFechaInicio());
+			request.getSession().setAttribute("hora",datosCarrera.getHoraInicio());
+			request.getSession().setAttribute("imagenFlyer",datosCarrera.getImagenFlyer());
+			request.getSession().setAttribute("imagenRecorrido",datosCarrera.getImagenRecorrido());
+			request.getSession().setAttribute("valor",datosCarrera.getValor());			
 			ModelAndView vistaCarrera = new ModelAndView();
 			vistaCarrera.addObject(datosCarrera);
 			vistaCarrera.setViewName("carreraElegida");

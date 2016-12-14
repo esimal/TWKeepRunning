@@ -12,43 +12,62 @@ import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Inscripcion;
+import tallerweb.keeprunning.modelo.Usuario;
 import tallerweb.keeprunning.servicios.InscripcionServicios;
 
 @Controller
 @RequestMapping("/proyecto-base-spring/")
 public class ControladorInscripcion {
 
-	@RequestMapping(value = "/inscripcion/{carreraId}", method = RequestMethod.GET)
-	public ModelAndView datosInscripcion(@PathVariable("carreraId") Long carreraId) {
+	@RequestMapping(value = "/inscripcion/{carreraId}/{usuarioId}", method = RequestMethod.GET)
+	public ModelAndView datosInscripcion(@PathVariable("carreraId") Long carreraId, @PathVariable("usuario") Long usuarioId) {
 		Carrera carrera = new Carrera();
 		ModelMap datosCarrera = new ModelMap();
 		datosCarrera.put("nombre", carrera.getNombre());
 		datosCarrera.put("carreraId", carreraId);
+		datosCarrera.put("usuarioId", usuarioId);
 		ModelAndView vistaCarrera = new ModelAndView();
 		vistaCarrera.addAllObjects(datosCarrera);
 		vistaCarrera.setViewName("inscripcion");
 		return vistaCarrera;
 		}
-	
+	/*
 	@RequestMapping(value = "/inscripcion-pago", method = RequestMethod.GET)
 	public ModelAndView vistaInscripcionPago() {
 		return new ModelAndView("inscripcion-pago");
+	}*/
+	
+	@RequestMapping(value = "/inscripcion-pago/{carreraId}/{usuarioId}", method = RequestMethod.GET)
+	public ModelAndView vistaInscripcionPago(@PathVariable("carreraId") Long carreraId, @PathVariable("usuario") Long usuarioId) {
+		ModelMap datosCarrera = new ModelMap();
+		datosCarrera.put("carreraId", carreraId);
+		datosCarrera.put("usuarioId", usuarioId);
+		ModelAndView vistaCarrera = new ModelAndView();
+		vistaCarrera.addAllObjects(datosCarrera);
+		return new ModelAndView("inscripcion-pago",datosCarrera);
 	}
 	
 	//modificar para que tome el id de la carrera y del usuario
 	@Inject
 	private InscripcionServicios registrarInscripcion;
-	@RequestMapping(value = "/inscripcion-fin", method = RequestMethod.GET)
-	public ModelAndView guardarInscripcion(@ModelAttribute("inscripcion") Inscripcion inscripcion) {
-		//carrera.setCarreraId(1L);
-		registrarInscripcion.grabarInscripcion(inscripcion);
+	
+	@RequestMapping(value = "/inscripcion-fin/{carreraId}/{usuarioId}", method = RequestMethod.GET)
+	public ModelAndView guardarInscripcion(@PathVariable("carreraId") Long carreraId, @PathVariable("usuario") Long usuarioId, @ModelAttribute("inscripcion") Inscripcion inscripcion) {
+		Carrera carrera = new Carrera();
+		carrera.setCarreraId(carreraId);
+		//Usuario usuario = new Usuario();
+		//usuario.setUsuarioId(usuarioId);
+		registrarInscripcion.grabarInscripcion(carrera, inscripcion.getUsuario(), inscripcion.getFechaPago(), inscripcion.getNroCorredor());
 		ModelMap ins = new ModelMap();
 		Integer nroCorredor = inscripcion.getNroCorredor().nextInt(10000) + 1;
-		System.out.println(inscripcion.getCarrera());
-   		System.out.println(inscripcion.getUsuario());
+		System.out.println(carreraId);
+   		System.out.println(usuarioId);
    		System.out.println(inscripcion.getFechaPago());
-   		ins.addAttribute("nroCorredor", nroCorredor);
+   		ins.put("nroCorredor", nroCorredor);
+   		//ins.put("carreraId", carreraId);
    		System.out.println(nroCorredor);
+   		ModelAndView vistaCarrera = new ModelAndView();
+		vistaCarrera.addAllObjects(ins);
 		return new ModelAndView("inscripcion-fin", ins);
 	}
 

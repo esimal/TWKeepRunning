@@ -38,6 +38,11 @@ public class UsuarioServiciosImpl implements UsuarioServicios{
 		return usuarioDao.obtenerUsuarios();
 	}
 
+	@Transactional
+	public Long obtenerUsuarioIdPorEmail(String email){
+		return usuarioDao.obtenerUsuarioIdPorEmail(email);
+	}
+	
 	public void setUsuarioDAO(UsuarioDAO usuarioDao) {
 		this.usuarioDao = usuarioDao;
 	}

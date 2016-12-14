@@ -21,9 +21,9 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <!-- Bootstrap theme -->
-	    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet">
 	    
-	    <link href="../css/estilos.css" rel="stylesheet">
+	    <link href="../../css/estilos.css" rel="stylesheet">
 	</head>
 	
 	<body>
@@ -53,7 +53,7 @@
 	                        
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion text-center">
-							<h3>Datos de la Tarjeta Id carrera ${carreraId}</h3>
+							<h3>Datos de la Tarjeta</h3>
 						</div>
 						<div>
 							<form method="GET" class="form-horizontal" role="form">
@@ -113,7 +113,7 @@
 							    
 							  	<div class="text-center">
 									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring/inscripcion">Atrás</a>
-									<a class="btn btn-primary btnContinuar" href="../proyecto-base-spring/inscripcion-fin">Finalizar</a>
+									<a class="btn btn-primary btnContinuar" href="../inscripcion-fin/${carreraId}/${usuarioId}">Finalizar</a>
 								</div>
 							</form>
 						</div>

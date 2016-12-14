@@ -87,7 +87,7 @@
 							    
 							  	<div class="text-center">
 									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring">Atrás</a>
-									<a class="btn btn-primary btnContinuar" href="../inscripcion-pago">Siguiente</a>
+									<a class="btn btn-primary btnContinuar" href="../inscripcion-pago/${carreraId}/${usuarioId}">Siguiente</a>
 								</div>
 							</form>
 						</div>
