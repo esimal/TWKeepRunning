@@ -35,6 +35,7 @@
 					  		<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 					  		<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>					  	
 					  		<li><a class="btn btn-menu" href="#"><span class="glyphicon glyphicon-log-in"></span> ${email}</a></li>
+					  		<li><input id="usuarioId" name="usuarioId" type="hidden" value="${usuarioId}"/></li>
 					  	</c:when>
 					  	<c:otherwise>		
 							<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
@@ -58,6 +59,7 @@
 						<div>
 							<form method="GET" class="form-horizontal" role="form">
 								<div class="form-group">
+									<input id="usuarioId" name="usuarioId" type="hidden" value="${usuarioId}"/>
 						    		<label for="titular" class="col-xs-6">Titular de la Tarjeta:</label>
 						    		<div class="col-xs-6">
 										<input type="text" id="titular" class="form-control opciones-inscripcion" required="required"/>
@@ -113,7 +115,7 @@
 							    
 							  	<div class="text-center">
 									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring/inscripcion">Atrás</a>
-									<a class="btn btn-primary btnContinuar" href="../inscripcion-fin/${carreraId}/${usuarioId}">Finalizar</a>
+									<a class="btn btn-primary btnContinuar" href="../inscripcion-fin/${carreraId}">Finalizar</a>
 								</div>
 							</form>
 						</div>

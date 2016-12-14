@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -20,8 +19,7 @@
 		
 		<!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- Bootstrap theme -->
 		<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		
@@ -31,12 +29,10 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript"
-			src="../js/carreraElegida.js"></script>
+		<script type="text/javascript" src="../js/carreraElegida.js"></script>
 		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	</head>
 
 <body>
@@ -46,8 +42,9 @@
 				<c:choose>
 					<c:when test="${email != null}">
 						<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-				  		<li><a class="btn btn-menu" href="./proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+				  		<li><a class="btn btn-menu" href="/proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 						<li><a class="btn btn-menu" href="./login=0">${email}</a></li>
+						<li><input id="usuarioId" name="usuarioId" type="hidden" value="${usuarioId}"/></li>
 				  	</c:when>
 				  	<c:otherwise>
 						<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
@@ -148,7 +145,7 @@
 								<a href="./login"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>
 							</c:when>
 							<c:otherwise>
-								<a href="./inscripcion/${carreraId}/${usuarioId}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
+								<a href="./inscripcion/${carreraId}"><button type="button" class="btn btn-success btnLogin" id="btnLogin">Inscripción</button></a><br>					
 							</c:otherwise>
 						</c:choose>	
 					</div>

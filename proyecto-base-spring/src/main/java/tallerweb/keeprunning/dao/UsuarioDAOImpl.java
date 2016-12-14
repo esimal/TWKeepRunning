@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import tallerweb.keeprunning.modelo.Carrera;
 import tallerweb.keeprunning.modelo.Usuario;
 
 @Repository

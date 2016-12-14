@@ -18,7 +18,7 @@ public class ControladorCarreras {
 	@Inject
 	private CarreraServicios obtenerDatosCarrera;	
 	@RequestMapping(value = "/carrera={carreraId}", method = RequestMethod.GET)
-	public ModelAndView cargarDatosCarrera(@PathVariable("carreraId") long carreraId, HttpServletRequest request) {
+	public ModelAndView cargarDatosCarrera(@PathVariable("carreraId") Long carreraId, HttpServletRequest request) {
 		Carrera datosCarrera = obtenerDatosCarrera.obtenerDatosCarreras(carreraId);
 		if(datosCarrera != null){
 			request.getSession().setAttribute("nombre",datosCarrera.getNombre());
@@ -27,7 +27,7 @@ public class ControladorCarreras {
 			request.getSession().setAttribute("hora",datosCarrera.getHoraInicio());
 			request.getSession().setAttribute("imagenFlyer",datosCarrera.getImagenFlyer());
 			request.getSession().setAttribute("imagenRecorrido",datosCarrera.getImagenRecorrido());
-			request.getSession().setAttribute("valor",datosCarrera.getValor());			
+			request.getSession().setAttribute("valor",datosCarrera.getValor());
 			ModelAndView vistaCarrera = new ModelAndView();
 			vistaCarrera.addObject(datosCarrera);
 			vistaCarrera.setViewName("carreraElegida");

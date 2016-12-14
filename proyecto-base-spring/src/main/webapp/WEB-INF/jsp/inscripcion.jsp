@@ -34,6 +34,7 @@
 				  		<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 					  	<li><a class="btn btn-menu" href="/proyecto-base-spring/proyecto-base-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 				  		<li><a class="btn btn-menu" href="#">${email}</a></li>
+				  		<li><input id="usuarioId" name="usuarioId" type="hidden" value="${usuarioId}"/></li>
 				  	</c:when>
 				  	<c:otherwise>
 						<li><a class="btn btn-menu" href="/proyecto-base-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
@@ -52,7 +53,7 @@
 
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-inscripcion">
 						<div class="texto-inscripcion">
-							<p>Hola <b>${email}</b>! Estás iniciando el proceso para inscribirte en el evento: <b>${nombre}</b>.</p><br>		
+							<p>Hola <b>${email} Id: ${usuarioId}</b>! Estás iniciando el proceso para inscribirte en el evento: <b>${nombre}</b>.</p><br>		
 						</div>
 						<div class="">
 							<form method="get" class="form-horizontal" role="form">
@@ -87,7 +88,7 @@
 							    
 							  	<div class="text-center">
 									<a class="btn btn-primary btnCancelar" href="../proyecto-base-spring">Atrás</a>
-									<a class="btn btn-primary btnContinuar" href="../inscripcion-pago/${carreraId}/${usuarioId}">Siguiente</a>
+									<a class="btn btn-primary btnContinuar" href="../inscripcion-pago/${carreraId}">Siguiente</a>
 								</div>
 							</form>
 						</div>
