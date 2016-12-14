@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb.keeprunning.test;
+package tallerweb.keeprunning.test.controladores;
 
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;

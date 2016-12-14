@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb.keeprunning.test;
+package tallerweb.keeprunning.test.dao;
 
 import javax.inject.Inject;
 

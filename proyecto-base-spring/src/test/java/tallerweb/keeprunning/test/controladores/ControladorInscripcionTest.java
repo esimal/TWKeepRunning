@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb.keeprunning.test;
+package tallerweb.keeprunning.test.controladores;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
