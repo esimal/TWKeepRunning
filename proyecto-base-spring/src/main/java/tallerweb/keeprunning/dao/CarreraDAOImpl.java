@@ -21,9 +21,5 @@ public class CarreraDAOImpl implements CarreraDAO{
 							.add(Restrictions.eq("carreraId", carreraId))
 							.uniqueResult();
 		return carrera;
-		/*Criteria cr = sessionFactory.openSession().createCriteria(Carrera.class);
-		cr.add(Restrictions.eq("carreraId", carreraId));
-		List<Carrera> resultado = cr.list(); 
-		return resultado;*/
 	}
 }

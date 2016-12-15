@@ -9,7 +9,8 @@ import static org.mockito.Mockito.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
+
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,7 +40,7 @@ public class UsuarioDaoTest extends SpringTest{
 		//assertThat(usuarios).hasSize(2);
 	}
 	
-	@Autowired
+	@Inject
 	private UsuarioDAO usuarioDao;
 	
 	@Test
@@ -50,6 +51,6 @@ public class UsuarioDaoTest extends SpringTest{
 		usuarioDao.grabarUsuario(usuario);
 		usuarioDao.grabarUsuario(usuario2);
 		List<Usuario> usuarios = usuarioDao.obtenerUsuarios();
-		assertThat(usuarios).hasSize(11);
+		assertThat(usuarios).hasSize(4);
 	}
 }
