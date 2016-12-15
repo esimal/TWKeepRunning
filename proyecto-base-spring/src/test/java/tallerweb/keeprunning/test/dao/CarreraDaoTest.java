@@ -5,29 +5,16 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.*;
-//import static org.mockito.Mockito.*;
 
 import javax.inject.Inject;
 
 import tallerweb.keeprunning.dao.CarreraDAO;
 import tallerweb.keeprunning.modelo.Carrera;
-//import tallerweb.keeprunning.servicios.CarreraServiciosImpl;
 
-public class CarreraServiciosImplTest extends SpringTest{
+public class CarreraDaoTest extends SpringTest{
 
 	@Inject
 	CarreraDAO carreraDAO;
-	
-	/*
-	@Test
-	public void probarQueTraigaDatosDeCarreraCorrectamente(){
-		CarreraServiciosImpl carreraServiciosImpl = new CarreraServiciosImpl();
-		Carrera carrera = new Carrera("nombre","lugar","fecha","hora","iamgen1","imagen2",100);
-		CarreraDAO carreraDaoMock = mock(CarreraDAO.class);
-		carreraDaoMock.obtenerDatosCarreras(carrera.getCarreraId());
-		carreraServiciosImpl.setCarreraDao(carreraDaoMock);
-		assertThat(carrera.getNombre()).isEqualTo("nombre");
-	}*/
 	
 	@Test
 	@Rollback @Transactional
