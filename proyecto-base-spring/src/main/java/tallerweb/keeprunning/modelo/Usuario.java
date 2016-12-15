@@ -56,6 +56,11 @@ public class Usuario implements java.io.Serializable{
 		this.passwordConf = passwordConf;
 	}
 
+	public Usuario(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "usuarioId", unique=true, nullable=false)

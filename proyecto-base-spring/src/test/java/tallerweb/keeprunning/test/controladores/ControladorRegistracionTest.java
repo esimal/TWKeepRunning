@@ -18,7 +18,7 @@ public class ControladorRegistracionTest {
 		Usuario usuario = new Usuario("TestNombre", "TestApellido", 12345679L, "test@gmail.com", "123", "123", "22/07/1992");
 		UsuarioServicios servicioMock = mock(UsuarioServicios.class);
 		servicioMock.grabarUsuario(usuario);
-		controladorRegistracion.setRegistrarUsuario(servicioMock);
+		controladorRegistracion.setRegistrarUsuarioMock(servicioMock);
 		ModelAndView mav = controladorRegistracion.guardarUsuario(usuario);
 		assertThat(mav.getViewName()).isEqualTo("registracionOk");
 	}

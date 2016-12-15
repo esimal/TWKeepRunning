@@ -41,7 +41,7 @@ public class ControladorRegistracion {
         return registracion;
 	}
 
-	public void setRegistrarUsuario(UsuarioServicios registrarUsuario) {
+	public void setRegistrarUsuarioMock(UsuarioServicios registrarUsuario) {
 		this.registarUsuario = registrarUsuario;
 	}
 }

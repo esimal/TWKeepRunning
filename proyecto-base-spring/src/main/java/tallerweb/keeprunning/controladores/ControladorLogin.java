@@ -96,7 +96,7 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/");
 	}
 
-	public void setValidarUsuario(UsuarioServicios validar) {
+	public void setValidarUsuarioMock(UsuarioServicios validar) {
 		this.validar = validar;
 	}
 }

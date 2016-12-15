@@ -6,6 +6,8 @@ import static org.mockito.Mockito.*;
 import java.util.Date;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.junit.Test;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,15 +22,16 @@ public class ControladorInscripcionTest {
 	@Test
 	public void testQuePruebaQueLuegoDeRealizarUnaInscripcionVaALaVistaInscripcionFin(){
 		ControladorInscripcion controladorInscripcion = new ControladorInscripcion();
-		Carrera carrera = new Carrera();
+		Carrera carrera = new Carrera(5L);
 		Usuario usuario = new Usuario();
 		Date fechaPago = new Date();
 		Random nroCorredor = new Random();
 		Inscripcion inscripcion = new Inscripcion();
+		HttpServletRequest requestMock = mock(HttpServletRequest.class);
 		InscripcionServicios servicioMock = mock(InscripcionServicios.class);
 		servicioMock.grabarInscripcion(carrera, usuario, fechaPago, nroCorredor);
-		controladorInscripcion.setRegistrarInscripcion(servicioMock);
-		ModelAndView mav = controladorInscripcion.guardarInscripcion(carrera, usuario, fechaPago, nroCorredor);
+		controladorInscripcion.setRegistrarInscripcionMock(servicioMock);
+		ModelAndView mav = controladorInscripcion.guardarInscripcion(carrera.getCarreraId(), inscripcion, requestMock);
 		assertThat(mav.getViewName()).isEqualTo("inscripcion-fin");
 	}
 }

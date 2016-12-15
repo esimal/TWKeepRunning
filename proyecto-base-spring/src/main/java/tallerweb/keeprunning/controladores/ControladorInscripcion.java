@@ -72,7 +72,7 @@ public class ControladorInscripcion {
 		return new ModelAndView("inscripcion-fin", ins);
 	}
 
-	public void setRegistrarInscripcion(InscripcionServicios registrarInscripcion) {
+	public void setRegistrarInscripcionMock(InscripcionServicios registrarInscripcion) {
 		this.registrarInscripcion = registrarInscripcion;
 	}
 }
